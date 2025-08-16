@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "name": "Idle Loops",
+    "short_name": "Idle Loops",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#111811",
+    "theme_color": "#4caf50",
+    "description": "An idle incremental time-loop game",
+    "launch_handler": {
+        "client_mode": "focus-existing"
+    },
+    "scope": ".",
+    "icons": [
+        {
+            "src": "favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "img/wander.svg",
+            "sizes": "any"
+        }
+    ]
+}

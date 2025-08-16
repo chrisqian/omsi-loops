@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schema/actionList.rng"?>
+<actions xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="refs.xml" /> <!-- For IDE autocomplete, not used by game or editor -->
+    <defs>
+        <defineAdjustment name="prestigeContent">
+            <prestigeBonus name="PrestigeSpatiomancy" />
+            <round/>
+        </defineAdjustment>
+    </defs>
+    <action type="progress" name="Wander">
+        <expMult value="1"/>
+        <storyReqs>
+            <story num="1">
+                <ifProgress min="20" />
+            </story>
+            <story num="2">
+                <ifProgress min="40" />
+            </story>
+            <story num="3">
+                <ifProgress min="60" />
+            </story>
+            <story num="4">
+                <ifProgress min="80" />
+            </story>
+            <story num="5">
+                <ifProgress min="100" />
+            </story>
+        </storyReqs>
+        <stats>
+            <stat statName="Per">20</stat>
+            <stat statName="Con">20</stat>
+            <stat statName="Cha">20</stat>
+            <stat statName="Spd">30</stat>
+            <stat statName="Luck">10</stat>
+        </stats>
+        <affectedBy>
+            <action name="Buy Glasses" />
+        </affectedBy>
+        <effortCost value="250"/>
+        <visible/>
+        <unlocked/>
+        <progress value="200">
+            <multiplier value="4">
+                <ifResource resourceName="glasses" />
+            </multiplier>
+        </progress>
+    </action>
+    <action type="limited" name="Smash Pots" varName="Pots">
+        <expMult value="1"/>
+        <storyReqs>
+            <story num="1">
+                <ifGoodItems min="50" />
+            </story>
+            <story num="2">
+                <ifGoodItems min="75" />
+            </story>
+        </storyReqs>
+        <stats>
+            <stat statName="Str">20</stat>
+            <stat statName="Per">20</stat>
+            <stat statName="Spd">60</stat>
+        </stats>
+        <effortCost value="50">
+            <skillBonus name="Practical" />
+            <ceil/>
+        </effortCost>
+        <visible/>
+        <unlocked/>
+        <totalDiscovered>
+            <progressLevel varName="Wander" />
+            <multiplier value="5" />
+            <adjustment name="prestigeContent" />
+            <surveyBonus />
+            <floor />
+        </totalDiscovered>
+        <oneInEvery>10</oneInEvery>
+        <primaryValue value="100">
+            <skillBonus name="Dark" />
+            <floor />
+        </primaryValue>
+        <reward>
+            <numericResource name="mana">
+                <primaryValue />
+            </numericResource>
+        </reward>
+    </action>
+    <action type="limited" name="Pick Locks" varName="Locks">
+        <expMult>1</expMult>
+        <storyReqs>
+            <story num="1">
+                <ifCheckedItems min="1" />
+            </story>
+            <story num="2">
+                <ifCheckedItems min="50" />
+            </story>
+            <story num="3">
+                <ifGoodItems min="10" />
+            </story>
+            <story num="4">
+                <ifGoodItems min="25" />
+            </story>
+        </storyReqs>
+        <stats>
+            <stat statName="Dex">50</stat>
+            <stat statName="Per">30</stat>
+            <stat statName="Spd">10</stat>
+            <stat statName="Luck">10</stat>
+        </stats>
+        <effortCost>400</effortCost>
+        <visible>
+            <ifProgress varName="Wander" min="3" />
+        </visible>
+        <unlocked>
+            <ifProgress varName="Wander" min="20" />
+        </unlocked>
+        <totalDiscovered>
+            <progressLevel varName="Wander" />
+            <adjustment name="prestigeContent" />
+            <additiveBonus>
+                <skillMod name="Spatiomancy" minExclusive="100" max="300" percentChange="0.5" />
+                <surveyBonus />
+            </additiveBonus>
+            <floor />
+        </totalDiscovered>
+        <oneInEvery>10</oneInEvery>
+        <primaryValue value="10">
+            <skillMod name="Practical" minExclusive="0" max="200" percentChange="1" />
+            <skillBonus name="Thievery" />
+        </primaryValue>
+        <reward>
+            <numericResource name="gold">
+                <primaryValue />
+            </numericResource>
+        </reward>
+    </action>
+    <action type="normal" name="Buy Glasses">
+        <expMult>1</expMult>
+        <storyReqs>
+            <story num="1">
+                <ifStoryFlag storyFlagName="glassesBought" />
+            </story>
+            <story num="2">
+                <if min="100">
+                    <function name="getExploreProgress" />
+                </if>
+            </story>
+        </storyReqs>
+        <stats>
+            <stat statName="Cha">70</stat>
+            <stat statName="Spd">30</stat>
+        </stats>
+        <allowed>1</allowed>
+        <cost>
+            <numericResource name="gold">10</numericResource>
+        </cost>
+        <effortCost>50</effortCost>
+        <visible>
+            <ifProgress varName="Wander" min="3" />
+            <if maxExclusive="100">
+                <function name="getExploreProgress" />
+            </if>
+        </visible>
+        <unlocked>
+            <ifProgress varName="Wander" min="20" />
+        </unlocked>
+        <reward>
+            <booleanResource name="glasses" />
+        </reward>
+    </action>
+</actions>

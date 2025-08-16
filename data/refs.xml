@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is just for IDE reference and can be removed once all these have been defined properly -->
+<refs>
+    <stats>
+        <stat>Dex</stat>
+        <stat>Str</stat>
+        <stat>Con</stat>
+        <stat>Spd</stat>
+        <stat>Per</stat>
+        <stat>Cha</stat>
+        <stat>Int</stat>
+        <stat>Luck</stat>
+        <stat>Soul</stat>
+    </stats>
+    <skills>
+        <skill>Combat</skill>
+        <skill>Magic</skill>
+        <skill>Practical</skill>
+        <skill>Alchemy</skill>
+        <skill>Crafting</skill>
+        <skill>Dark</skill>
+        <skill>Chronomancy</skill>
+        <skill>Pyromancy</skill>
+        <skill>Restoration</skill>
+        <skill>Spatiomancy</skill>
+        <skill>Mercantilism</skill>
+        <skill>Divine</skill>
+        <skill>Commune</skill>
+        <skill>Wunderkind</skill>
+        <skill>Gluttony</skill>
+        <skill>Thievery</skill>
+        <skill>Leadership</skill>
+        <skill>Assassin</skill>
+    </skills>
+    <buffs>
+        <buff>Ritual</buff>
+        <buff>Imbuement</buff>
+        <buff>Imbuement2</buff>
+        <buff>Feast</buff>
+        <buff>Aspirant</buff>
+        <buff>Heroism</buff>
+        <buff>Imbuement3</buff>
+        <buff>PrestigePhysical</buff>
+        <buff>PrestigeMental</buff>
+        <buff>PrestigeCombat</buff>
+        <buff>PrestigeSpatiomancy</buff>
+        <buff>PrestigeChronomancy</buff>
+        <buff>PrestigeBartering</buff>
+        <buff>PrestigeExpOverflow</buff>
+    </buffs>
+</refs>

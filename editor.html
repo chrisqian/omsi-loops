@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>IL Content Editor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="editor.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <style type="text/css">
+        body {
+            margin: 1em;
+        }
+    </style>
+
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/mousetrap.min.js'></script>
+    <script src='polyfills.js'></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7MKZE2ZZH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D7MKZE2ZZH');
+    </script>
+</head>
+
+<body>
+    <script>
+        if (localStorage["latestTheme"]) {
+            document.body.className = `t-${localStorage["latestTheme"]}`;
+        }
+    </script>
+
+    <h1>IL Content Editor</h1>
+
+    <h2>Global Definitions</h2>
+    <reorderable-list id="defs" class="elementList">
+    </reorderable-list>
+
+    <template id="defineAdjustmentTemplate">
+        <list-item open expandable reorderable position="indent" class="default-label">
+            <fieldset slot="details">
+                <label>
+                    Name: <input name="name">
+                </label>
+                <ul class="evaluationRules"></ul>
+                <button class="addAdjustment button">Add adjustment/condition</button>
+            </fieldset>
+        </list-item>
+    </template>
+
+    <h2>Actions</h2>
+    <reorderable-list id="actions" class="elementList">
+    </reorderable-list>
+
+    <template id="actionDefinitionTemplate">
+        <list-item class="actionDefinition default-label" data-action-type="normal" open expandable reorderable position="indent">
+            <fieldset slot="details">
+                <div class="fieldrow">
+                    <label>
+                        Action type:
+                        <select name="type">
+                            <option value="normal">Normal</option>
+                            <option value="limited">Limited</option>
+                            <option value="progress">Progress</option>
+                            <option value="multipart">Multipart</option>
+                        </select>
+                    </label>
+                    <label>
+                        Name: <input name="name">
+                    </label>
+                    <label>
+                        Variable name: <input name="varName">
+                    </label>
+                    <label>
+                        XML name: <input name="xmlName">
+                    </label>
+                </div>
+                <list-item expandable position="indent" class="numericEvaluation" data-xml-name="effortCost" label="Effort cost"></list-item>
+                <list-item expandable position="indent" optional class="numericEvaluation" data-xml-name="expMult" style="--absence-text:'1'" label="Exp multiplier"></list-item>
+                <list-item expandable position="indent" optional class="numericEvaluation" data-xml-name="primaryValue" label="Primary value"></list-item>
+                <list-item expandable position="indent" optional class="conditionalEvaluation" data-xml-name="visible" style="--absence-text:'never'" label="Action is visible"></list-item>
+                <list-item expandable position="indent" optional class="conditionalEvaluation" data-xml-name="unlocked" style="--absence-text:'never'" label="Action is unlocked"></list-item>
+                <list-item expandable position="indent" optional class="numericEvaluation" data-xml-name="allowed" style="--absence-text:'unlimited'" label="Max allowed in loop"></list-item>
+                <list-item expandable position="indent" optional class="conditionalEvaluation" data-xml-name="canStart" style="--absence-text:'always'" label="Action can be started"></list-item>
+                <list-item expandable position="indent" class="progressOnly numericEvaluation" data-xml-name="progress" label="Progress exp"></list-item>
+                <list-item expandable position="indent" class="limitedOnly numericEvaluation" data-xml-name="totalDiscovered" label="Total items discovered"></list-item>
+                <list-item expandable position="indent" class="limitedOnly numericEvaluation" data-xml-name="oneInEvery" label="One good item in every"></list-item>
+            </fieldset>
+        </list-item>
+    </template>
+
+    <template id="numericEvaluationTemplate">
+        <shrink-wrap><input name="value" placeholder="base value:"></shrink-wrap>
+        <span class="baseValueCalculation"></span>
+
+        <reorderable-list class="evaluationRules" slot="details" accepts="evaluationRule"></reorderable-list>
+        <button class="addRule button" slot="details"></button>
+    </template>
+
+    <template id="baseValueCalculationTemplate">
+        <shrink-wrap class="baseValueType"><select name="tagName" class="fromDataList" data-list="baseValueTypes"></select></shrink-wrap>
+        <!-- All following elements get autohidden by CSS-->
+        <shrink-wrap><select name="actionName" class="fromDataList" data-list="actionNames"></select></shrink-wrap>
+        <shrink-wrap><select name="skillName" class="fromDataList" data-list="skills"></select></shrink-wrap>
+        <shrink-wrap><select name="buffName" class="fromDataList" data-list="buffs"></select></shrink-wrap>
+        <shrink-wrap><select name="resourceName" class="fromDataList" data-list="resources"></select></shrink-wrap>
+        <shrink-wrap><select name="functionName" class="fromDataList" data-list="jsFunctions"></select></shrink-wrap>
+        <shrink-wrap><select name="varName" class="fromDataList" data-list="varNames"></select></shrink-wrap>
+    </template>
+
+    <template id="conditionalEvaluationTemplate">
+        <reorderable-list class="evaluationRules" slot="details" accepts="evaluationRule"></reorderable-list>
+        <button class="addRule button" slot="details"></button>
+    </template>
+
+    <template id="evaluationRuleTemplate">
+        <list-item expandable reorderable position="indent" class="evaluationRule" kind="evaluationRule">
+            <shrink-wrap class="evaluationRuleType"><select name="tagName">
+                <optgroup label="Conditions" class="fromDataList" data-list="conditionalRuleTypes"></optgroup>
+                <optgroup label="Adjustments" class="fromDataList" data-list="numericAdjustmentTypes"></optgroup>
+            </select></shrink-wrap>
+            <!-- All following elements get autohidden by CSS-->
+            <shrink-wrap><select name="statName" class="fromDataList" data-list="stats"></select></shrink-wrap>
+            <shrink-wrap><select name="skillName" class="fromDataList" data-list="skills"></select></shrink-wrap>
+            <shrink-wrap><select name="buffName" class="fromDataList" data-list="buffs"></select></shrink-wrap>
+            <shrink-wrap><select name="prestigeBuffName" class="fromDataList" data-list="prestigeBuffs"></select></shrink-wrap>
+            <shrink-wrap><select name="storyFlagName" class="fromDataList" data-list="storyFlags"></select></shrink-wrap>
+            <shrink-wrap><select name="resourceName" class="fromDataList" data-list="resources"></select></shrink-wrap>
+            <shrink-wrap><select name="adjustmentName" class="fromDataList" data-list="namedAdjustments"></select></shrink-wrap>
+            <shrink-wrap><select name="actionName" class="fromDataList" data-list="actionNames" data-empty-option-label="(this Action)"></select></shrink-wrap>
+            <shrink-wrap><select name="varName" class="fromDataList" data-list="varNames" data-empty-option-label="(this Action)"></select></shrink-wrap>
+            <span class="skillModOnly">when level is</span>
+            <shrink-wrap class="numericTestType numericTest1"><select name="numericTest1" class="fromDataList" data-list="numericTestTypes" data-empty-option-label="&nbsp;&nbsp;"></select></shrink-wrap>
+            <shrink-wrap class="numericTestValue numericTest1"><input type="number" name="numericTest1Value" placeholder="0"></shrink-wrap>
+            <span class="numericTestType numericTest2"> and </span>
+            <shrink-wrap class="numericTestType numericTest2"><select name="numericTest2" class="fromDataList" data-list="numericTestTypes" data-empty-option-label="&nbsp;&nbsp;"></select></shrink-wrap>
+            <shrink-wrap class="numericTestValue numericTest2"><input type="number" name="numericTest2Value" placeholder="0"></shrink-wrap
+                ><span class="skillModOnly">, increase by</span>
+            <shrink-wrap class="skillModOnly"><input type="number" name="percentChange" placeholder="0"></shrink-wrap
+                ><span class="skillModOnly">% per level (101%, 102%, 103%...)</span>
+            <shrink-wrap><input name="value" placeholder="base value:"></shrink-wrap>
+            <span class="baseValueCalculation"></span>
+
+            <reorderable-list class="evaluationRules" slot="details" accepts="evaluationRule"></reorderable-list>
+            <button class="addRule button" slot="details"></button>
+        </list-item>
+    </template>
+
+    <div id="datalists">
+        <!-- Datalists used to populate "*Name" fields -->
+        <datalist id="stats"></datalist>
+        <datalist id="skills"></datalist>
+        <datalist id="buffs"></datalist>
+        <datalist id="prestigeBuffs"></datalist>
+        <datalist id="jsFunctions"></datalist>
+        <datalist id="storyFlags"></datalist>
+        <datalist id="resources"></datalist>
+        <datalist id="namedAdjustments"></datalist>
+        <datalist id="actionNames"></datalist>
+        <datalist id="varNames"></datalist>
+
+        <!-- Datalists only used explicitly -->
+        <datalist id="baseValueTypes"></datalist>
+        <datalist id="numericTestTypes"></datalist>
+        <datalist id="numericAdjustmentTypes"></datalist>
+        <datalist id="conditionalRuleTypes"></datalist>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="localization.js"></script>
+    <script src="helpers.js"></script>
+    <script src="schema.js"></script>
+    <script src="uicomponents.js"></script>
+    <script src="actionList.js"></script>
+    <script src="actionLog.js"></script>
+    <script src="driver.js"></script>
+    <script src="stats.js"></script>
+    <script src="actions.js"></script>
+    <script src="town.js"></script>
+    <script src="prestige.js"></script>
+    <script src="saving.js"></script>
+    <script src="editor.js"></script>
+    <script defer>
+        startEditor();
+    </script>
+</body>
+</html>

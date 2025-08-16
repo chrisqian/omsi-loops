@@ -1,0 +1,28 @@
+@font-face {
+    font-family: IdleLoopsIcons;
+    font-style: normal;
+    font-weight: normal;
+    src: url(img/IdleLoopsIcons.woff2);
+}
+
+.il-icon::before {
+    font-family: IdleLoopsIcons;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.il-icon.icon-space::before {
+    margin-right: 0.25em;
+}
+
+.il-mana::before {
+    content: "\e000";
+}
+
+.il-effort::before {
+    content: "\e001";
+}
+
+.il-exp::before {
+    content: "\e002";
+}

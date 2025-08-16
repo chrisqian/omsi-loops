@@ -1,0 +1,46 @@
+.radar-chart .axis path,
+.radar-chart .scaleLine path {
+    stroke: var(--graph-axis-color);
+    stroke-width: 1px;
+    fill: none;
+}
+.radar-chart .axis text,
+.radar-chart .scaleLine text {
+    fill: var(--graph-text-color);
+    text-anchor: middle;
+    font-size: 0.9rem;
+}
+
+.radar-chart .legend text {
+    fill: var(--graph-text-color);
+    font-size: 0.8rem;
+    dominant-baseline: central;
+}
+
+g.dataset[data-dataset=mana_cost_reduction] {
+    & rect {
+        fill: var(--graph-background-color);
+        stroke: var(--graph-border-color);
+    }
+    & polygon {
+        fill: var(--graph-background-color);
+        stroke: var(--graph-border-color);
+    }
+    & g.datapoint > circle {
+        fill: var(--graph-point-background-color);
+        stroke: var(--graph-point-border-color);
+    }
+    & g.datapoint:hover > circle {
+        fill: var(--graph-point-hover-background-color);
+        stroke: var(--graph-point-hover-border-color);
+    }
+}
+
+svg.stat-pie g:hover .pie-slice {
+    opacity: 0.25;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+svg.stat-pie .pie-slice {fill: var(--stat-color);}

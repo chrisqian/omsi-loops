@@ -1,0 +1,69 @@
+StartChar: mana
+Encoding: 57344 57344 0
+Width: 932
+Flags: MWO
+HStem: 75 75 310 90 480 120
+VStem: 255 120 436 75 620 95
+TtInstrs:
+RTHG
+SVTCA[y-axis]
+PUSHB_6
+ 0
+ 0
+ 1
+ 8
+ 2
+ 16
+MDAP[rnd]
+SHC[rp1]
+MDAP[rnd]
+SHC[rp1]
+MDAP[rnd]
+SHC[rp1]
+SVTCA[x-axis]
+PUSHB_6
+ 0
+ 2
+ 1
+ 10
+ 2
+ 18
+MDAP[rnd]
+SHC[rp1]
+MDAP[rnd]
+SHC[rp1]
+MDAP[rnd]
+SHC[rp1]
+EndTTInstrs
+LayerCount: 2
+Fore
+SplineSet
+468 355 m 1,0,-1
+ 621 402 l 1,1,-1
+ 668 555 l 1,2,-1
+ 715 402 l 1,3,-1
+ 868 355 l 1,4,-1
+ 715 308 l 1,5,-1
+ 668 155 l 1,6,-1
+ 621 308 l 1,7,-1
+ 468 355 l 1,0,-1
+314 111 m 1,8,-1
+ 436 148 l 1,9,-1
+ 474 270 l 1,10,-1
+ 511 148 l 1,11,-1
+ 633 111 l 1,12,-1
+ 511 73 l 1,13,-1
+ 474 -49 l 1,14,-1
+ 436 73 l 1,15,-1
+ 314 111 l 1,8,-1
+64 541 m 1,16,-1
+ 257 600 l 1,17,-1
+ 316 793 l 1,18,-1
+ 375 600 l 1,19,-1
+ 568 541 l 1,20,-1
+ 375 481 l 1,21,-1
+ 316 289 l 1,22,-1
+ 257 481 l 1,23,-1
+ 64 541 l 1,16,-1
+EndSplineSet
+EndChar

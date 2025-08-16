@@ -1,0 +1,2594 @@
+div {
+    display: inline-block;
+}
+
+div.block {
+    display: block;
+}
+
+p {
+    margin: 0.75ex 0;
+}
+p:first-child {
+    margin-top: 0;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+menu {
+    margin: 0;
+    padding: 0;
+}
+
+menu > li:focus-within, #story_control:focus-within, #story_control:focus-within > div:first-child  {
+    text-decoration: underline;
+    outline: none;
+    pointer-events: none; /* a second click bleeds through to base and defocuses the element */
+    & > * {
+        /* but children/tooltips are clickable */
+        pointer-events: initial;
+    }
+}
+#story_control:focus-within > div:first-child {
+    pointer-events: none; /* repeating to override the initial */
+}
+
+#menus > ul {
+    list-style: none;
+    padding: 0;
+}
+#menusMenu.disabled-changelog #enableMenu_changelog ~ label,
+#menusMenu.disabled-save #enableMenu_save ~ label,
+#menusMenu.disabled-faq #enableMenu_faq ~ label,
+#menusMenu.disabled-options #enableMenu_options ~ label,
+#menusMenu.disabled-extras #enableMenu_extras ~ label,
+#menusMenu.disabled-challenges #enableMenu_challenges ~ label,
+#menusMenu.disabled-totals #enableMenu_totals ~ label,
+#menusMenu.disabled-prestige_bonus #enableMenu_prestige_bonus ~ label
+{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+#menusMenu.disabled-changelog ~ #changelogMenu,
+#menusMenu.disabled-save ~ #saveMenu,
+#menusMenu.disabled-faq ~ #faqMenu,
+#menusMenu.disabled-options ~ #optionsMenu,
+#menusMenu.disabled-extras ~ #extrasMenu,
+#menusMenu.disabled-challenges ~ #challengesMenu,
+#menusMenu.disabled-totals ~ #totalsMenu,
+#menusMenu.disabled-prestige_bonus ~ #prestige_bonusesMenu
+{
+    display: none !important;
+}
+
+#changelog .showthis2 {
+    align-items: stretch;
+}
+#changelog .showthis2 > b:first-child {
+    display: block;
+    text-align: center;
+}
+
+button {
+    font: inherit;
+    padding: unset;
+    border: unset;
+    background: unset;
+    color: unset;
+    margin: unset;
+    box-sizing: unset;
+}
+
+:link {
+    color: var(--link-color);
+}
+:visited {
+    color: var(--link-visited-color);
+}
+:link:active, :visited:active {
+    color: var(--link-active-color);
+}
+
+:root {
+    /* non-responsive view sets pixel-based font size */
+    font-size: 14px;
+    /* default action list height for non-responsive */
+    --action-list-height: 500px;
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family:Arial, Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", serif;
+    color: var(--default-color);
+    font-size: 1rem;
+    height:100%;
+    margin:0;
+    background-color: var(--body-background);
+    cursor:default;
+}
+
+/* These are only used in mobile view  */
+main, #actionLogContainer, #timeControlsMain, #timeControlsOptions {
+    display: contents;
+}
+#navbar {
+    display: none;
+}
+
+#loadingBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+}
+
+#loadingText {
+    font-size: 200%;
+    place-self: center;
+}
+
+#cloud_save_result {
+    padding: 0;
+    list-style-type: none;
+}
+
+.cloud_save {
+    display: flex;
+    gap: 0.5em;
+    align-items: baseline;
+}
+
+.cloud_save_name {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body.loading > *:not(.showWhileLoading),
+body:not(.loading) > .hideWhenLoaded {
+    visibility: hidden;
+}
+
+.showthis {
+    pointer-events: none;
+}
+
+.showthatO {
+    position:relative;
+}
+
+/* Top menus, loadouts, and action stories can have focusable children in the popup, so they're sticky (they use focus-within) */
+.showthatH:hover .showthisH, .showthatH:focus-within .showthisH,
+.showthatloadout:hover .showthisloadout, .showthisloadout:hover, .showthatloadout:focus-within .showthisloadout,
+.showthatstory:hover .showthisstory, .showthatstory:focus-within .showthisstory,
+
+/* Other popups only focus on the trigger, so they use focus-visible to only sticky when using keyboard nav */
+.showthat:hover .showthis, .showthat:focus-visible .showthis, 
+.showthatO:hover .showthis, .showthatO:focus-visible .showthis
+{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+.showthat:hover .showthis.when-locked, .showthat:focus-within .showthis.when-locked,
+.showthat.locked:hover .showthis.when-unlocked, .showthat.locked:focus-within .showthis.when-unlocked
+{
+    visibility: hidden;
+}
+.showthat.locked:hover .showthis.when-locked, .showthat.locked:focus-within .showthis.when-locked
+{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.showthat2 {
+    white-space: nowrap;
+}
+
+.showthat2:is(:hover, :focus-within) {
+    background: var(--popup-background);
+    outline: 1px solid var(--popup-border);
+}
+
+.showthis, .showthis2, .showthisH {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    max-width: 400px;
+    max-width: min(400px,95svw);
+    position: fixed;
+    color: var(--popup-color);
+    background-color: var(--popup-background);
+    border:1px solid;
+    padding:3px 5px;
+    border-radius:4px;
+    margin-top:5px;
+    z-index: 999999;
+    text-align:left;
+    font-style:normal;
+}
+
+.showthisH {
+    max-height:95svh;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+:is(.showthatH,.showthatH:hover) ul.showthisH {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 3px 0;
+    & > li {
+        padding: 0 5px;
+    }
+}
+
+ul#faq > li {
+    position: relative;
+    padding-right: 2.5em;
+    &::before {
+        content: "Q: ";
+        font-weight: bold;
+    }
+    &:is(:hover,:focus-within)::after {
+        content: "A →";
+        font-weight: bold;
+        position: absolute;
+        right: 2px;
+    }
+}
+
+.showthis2 {
+    margin-top: -20px;
+    margin-left: 110px;
+    z-index: 1000;
+    min-width: 450px;
+    max-height: 600px;
+    overflow: auto;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    white-space: initial;
+}
+
+.showthat2:focus-within .showthis2 {
+    pointer-events: initial;
+    user-select: text;
+}
+
+.showthat2:is(:hover,:focus-within) .showthis2 {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.showthatloadout {
+    padding: 1px 5px;
+    text-align: center;
+    min-width: 20px;
+    cursor: pointer;
+    outline: none;
+    color: var(--button-color);
+    background-color: var(--button-background);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 3px var(--button-shadow);
+    position: relative;
+    top: -2px;
+    margin-bottom:2px;
+}
+.showthisloadout {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    height: 425px;
+    width: 215px;
+    color: var(--popup-color);
+    background-color: var(--popup-background);
+    border:1px solid;
+    padding:3px 5px;
+    border-radius:4px;
+    margin-top: -450px;
+    margin-bottom: 20px;
+    z-index: 999999;
+    text-align: left;
+    margin-left: -110px;
+    white-space: nowrap;
+}
+
+.showthisstory {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    max-width: 650px;
+    max-width: min(650px,95svw);
+    max-height: 95vh;
+    overflow: auto;
+    overscroll-behavior: contain;
+    color: var(--story-color);
+    background: var(--story-background);
+    border:1px solid var(--story-border);
+    padding:3px 5px;
+    margin-top:-2px;
+    margin-left:-1px;
+    z-index: 999999;
+    text-align:left;
+    pointer-events: none;
+    & > p {
+        margin-left:1em;
+        text-indent:-1em;
+    }
+}
+.showthatstory:focus-within .showthisstory {
+    pointer-events: all;
+    user-select: text;
+}
+
+.storyContainerCompleted .showthisstory {
+    background: var(--story-completed-background);
+}
+
+.thickProgressBar .showthis {
+    margin-top: 15px;
+}
+
+.show-when-time-borrowed {
+    display: none;
+}
+:root.time-borrowed .show-when-time-borrowed {
+    display: initial;
+}
+
+
+.title {
+    /* 1.14286 ≅ 8/7, 14px * 8/7 = 16px */
+    font-size:1.14286rem;
+    font-weight:bold;
+    display:block;
+    text-align:center;
+}
+
+
+.large {
+    font-size:1.14286rem;
+}
+.medium {
+    font-size:1rem;
+}
+.small {
+    /* 0.857143 ≅ 6/7, 14px * 6/7 = 12px */
+    font-size:0.857143rem;
+}
+.bold {
+    font-weight:bold;
+}
+.italic {
+    font-style: italic;
+}
+.underline {
+    text-decoration: underline;
+}
+.text-nowrap {
+    white-space: nowrap;
+}
+.text-wrap {
+    white-space: initial;
+}
+.colon-after::after {
+    content: ":";
+}
+.alert {
+    color: var(--alert-color);
+}
+
+/* These utility classes set a "stat context" for this element and its descendants */
+.stat-Str {--stat-color: var(--stat-Str-color);}
+.stat-Dex {--stat-color: var(--stat-Dex-color);}
+.stat-Con {--stat-color: var(--stat-Con-color);}
+.stat-Per {--stat-color: var(--stat-Per-color);}
+.stat-Int {--stat-color: var(--stat-Int-color);}
+.stat-Cha {--stat-color: var(--stat-Cha-color);}
+.stat-Spd {--stat-color: var(--stat-Spd-color);}
+.stat-Luck {--stat-color: var(--stat-Luck-color);}
+.stat-Soul {--stat-color: var(--stat-Soul-color);}
+
+/* And similarly for zones */
+.zone-1 {--zone-color: var(--zone-1-color); --zone-tint: var(--zone-tint-1); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-2 {--zone-color: var(--zone-2-color); --zone-tint: var(--zone-tint-2); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-3 {--zone-color: var(--zone-3-color); --zone-tint: var(--zone-tint-3); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-4 {--zone-color: var(--zone-4-color); --zone-tint: var(--zone-tint-4); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-5 {--zone-color: var(--zone-5-color); --zone-tint: var(--zone-tint-5); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-6 {--zone-color: var(--zone-6-color); --zone-tint: var(--zone-tint-6); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-7 {--zone-color: var(--zone-7-color); --zone-tint: var(--zone-tint-7); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-8 {--zone-color: var(--zone-8-color); --zone-tint: var(--zone-tint-8); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+.zone-9 {--zone-color: var(--zone-9-color); --zone-tint: var(--zone-tint-9); --zone-tint-opaque: color-mix(in srgb, var(--zone-tint) 50%, var(--next-actions-background));}
+
+/* These expect to have one of the above classes on this or an enclosing element, and they're only enabled in full-color mode */
+.use-stat-colors .stat-color, .use-stat-colors.stat-color {
+    color: var(--stat-color);
+}
+.use-stat-colors .stat-background, .use-stat-colors.stat-background {
+    background-color: var(--stat-color);
+}
+
+.superLargeIcon {
+    width: 34px;
+    height: 34px;
+}
+.largeIcon {
+    width:20px;
+    height:20px;
+}
+.smallIcon {
+    width: 16px;
+    height: 16px;
+}
+.buffIcon {
+    height: 12px;
+    width:12px;
+    top: 2px;
+    left: 4px;
+    position: absolute;
+}
+
+.notification {
+    position: absolute;
+    font-weight: bold;
+    border-radius: 50%;
+    display: none;
+}
+
+.notification::before {
+    content: "!";
+}
+
+.storyNotification {
+    right: -32px;
+    bottom: 4px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--story-border);
+}
+
+.storyContainer .superLargeIcon, .storyContainer .smallIcon {
+    filter: drop-shadow(-1px 1px 1px var(--story-icon-shadow-color));
+    mix-blend-mode: overlay;
+}
+
+input, label {
+    cursor:pointer;
+}
+input {
+    margin-right: 0;
+    margin-left: 0;
+    font-family: Arial, Helvetica, serif;
+}
+input, textarea, select {
+    background: var(--input-background);
+    color: var(--input-color);
+    border-color: var(--input-border);
+}
+
+.buffmaxinput {
+    top: 0px;
+    left: -5px;
+    width: 24px;
+    height: 12px;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    text-align: right;
+    color: var(--default-color);
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="checkbox"][disabled] + label {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/*.button {*/
+    /*border:2px white solid;*/
+    /*background-color: #bde0b7;*/
+    /*padding:3px 5px;*/
+    /*cursor:pointer;*/
+    /*border-radius:10px;*/
+    /*min-width:9px;*/
+    /*text-align:center;*/
+    /*vertical-align:center;*/
+/*}*/
+/*.button:hover {*/
+    /*border:2px blue solid;*/
+/*}*/
+
+
+.button, .loadoutbutton{
+    padding: 1px 5px;
+    font-family:Arial, Helvetica, serif;
+    font-weight: normal;
+    text-align: center;
+    min-width: 9px;
+    cursor: pointer;
+    outline: none;
+    color: var(--button-color);
+    background-color: var(--button-background);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 3px var(--button-shadow);
+    position: relative;
+    top: -2px;
+    margin-bottom:2px;
+}
+
+.button:hover:not([disabled]), .loadoutbutton:hover {background-color: var(--button-active-background)}
+
+.button:active:not([disabled]), .loadoutbutton:active, .showthatloadout:focus-within, .showthatloadout:hover {
+    background-color: var(--button-active-background);
+    box-shadow: 0 1px var(--button-active-shadow);
+    top: 0;
+}
+
+.button[disabled] {
+    background-color: var(--button-disabled-background);
+    box-shadow: 0 3px var(--button-disabled-shadow);
+}
+
+/* Focus ring for keyboard navigation */
+.button:focus-visible, .loadoutbutton:focus-visible {
+    outline: 2px solid var(--button-background);
+    outline-offset: 2px;
+}
+
+/* Give buttons a bit of leeway while pressed */
+.button:active::before, .loadoutbutton:active::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    z-index: -1;
+}
+
+.button.warning, .button.warning:hover {
+    background-color: var(--button-warning-background);
+}
+
+.loadoutbutton {
+    margin: 3px;
+}
+
+#bonusIsActiveInput:not(:checked) + .button,
+.unused {
+    background-color: var(--button-inactive-background);
+    box-shadow: 0 3px var(--button-inactive-shadow)
+}
+
+#bonusIsActiveInput {
+    display: none;
+}
+
+#statsColumn {
+    width: 316px;
+    vertical-align: top;
+}
+
+#statsWindow {
+    width: calc(100% - 12px);
+    margin-left: 12px;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    display: grid;
+    grid:
+        "title"
+        "selector"
+        "stats"
+        "skills"
+        "buffs"
+}
+
+#statsTitle {
+    grid-area: title;
+}
+#statViewSelector {
+    grid-area: selector;
+}
+#radarChart {
+    grid-area: stats;
+}
+#statsContainer {
+    grid-area: stats;
+    --max-bar-value: 100; /* default, 1-10 in first 75% of bar */
+}
+#skillList {
+    grid-area: skills;
+}
+#buffList {
+    grid-area: buffs;
+}
+
+.use-stat-colors .statLabelContainer .stat-name,
+.use-stat-colors .statLabelContainer .stat-level {
+    color: var(--stat-color);
+}
+
+.use-stat-colors .statLabelContainer .stat-talent {
+    color: color-mix(in srgb,
+                     var(--default-color) 40%,
+                     color-mix(in srgb, 
+                               var(--stat-color),
+                               var(--progress-bar-talent-color) 75%));
+}
+.use-stat-colors .statLabelContainer .stat-soulstone {
+    --stat-soulstone-color: color-mix(in srgb,
+                                      var(--default-color) 20%,
+                                      color-mix(in srgb,
+                                                var(--stat-color),
+                                                var(--progress-bar-town-color) 75%));
+}
+
+.skillContainer {
+    width:100%;
+    position:relative;
+    text-align:left;
+}
+
+.buffContainer {
+    display: none;
+    width:100%;
+    position:relative;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.buffNameContainer {
+    align-items: center;
+}
+
+.buffNumContainer {
+    flex-direction: row;
+    text-align: right;
+    font-size: 1rem;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 7px;
+}
+
+/* Radar stat view */
+#statsWindow[data-view=radar] {
+    & #statsContainer {
+        position: absolute;
+        /* This sets scale+origin for matching the svg's viewBox using % */
+        inset: 50% 25% 25% 50%;
+        pointer-events: none;
+        & > * {
+            pointer-events: initial;
+        }
+    }
+
+    & .statContainer {
+        width:40px;
+        margin: -20px 0 0 -20px;
+        padding-top:20px;
+        position:absolute;
+    }
+
+    & .statContainer > .statLabelContainer {
+        display: none;
+    }
+
+    & #skillList {
+        margin-top: -25px;
+    }
+}
+
+/* Regular stat view */
+#statsWindow[data-view=regular] {
+    & #radarChart {
+       display: none;
+    }
+    & #statsContainer {
+        margin: 15px 0;
+        display: grid;
+        grid-row-gap: 4px;
+        grid-template-columns: [fullrow-start] max-content 1fr max-content max-content max-content [fullrow-end];
+        container: stats-container / inline-size;
+        min-width: 225px;
+        &:hover {
+            z-index: 1;
+        }
+    }
+    & .statContainer {
+        width:100%;
+        height: 28px;
+        display: grid;
+        grid-column: fullrow;
+        grid-template:
+            "name statbars level talent soulstone"
+            ;
+        /* Chrome etc don't support subgrid in the grid-template value? */
+        grid-template-columns: [fullrow-start] max-content 1fr max-content max-content max-content [fullrow-end];
+        grid-template-columns: subgrid;
+
+        &:hover {
+            background-color: var(--stat-container-hover-background);
+        }
+        & > .statLabelContainer {
+            display: contents;
+            & > .statNum {
+                margin-top: 0;
+                padding-top: 6px;
+            }
+        }
+        & .stat-name {
+            grid-area: name;
+            margin-right: 0.5em;
+            padding-top: 1px;
+        }
+        & .stat-name.short-form {
+            display: none;
+        }
+        & .stat-level {
+            grid-area: level;
+        }
+        & .stat-talent {
+            grid-area: talent;
+        }
+        & .stat-soulstone {
+            grid-area: soulstone;
+        }
+        & > .statBars {
+            grid-area: statbars;
+            display: flex;
+            flex-direction: column;
+
+            & > :is(.thinProgressBarUpper, .thinProgressBarLower) {
+                margin: 0;
+                min-width: 4em;
+                height: 100%;
+                background: linear-gradient(to left, transparent, var(--progress-bar-background) max(32px,50%));
+            }
+        }
+            
+        }
+}
+
+@container stats-container (max-width: 350px) {
+    #statsWindow[data-view=regular] .statContainer {
+        height: auto;
+        grid-template-areas:
+            "name     name     level    talent   soulstone"
+            "statbars statbars statbars statbars statbars";
+        grid-template-rows: max-content max-content;
+
+        & > .statBars > :is(.thinProgressBarUpper, .thinProgressBarLower) {
+            height: 4px;
+            margin-left: 18px;
+            margin-top: 2px;
+        }
+    }
+}
+
+@container stats-container (max-width: 275px) {
+    #statsWindow[data-view=regular] .statContainer {
+        & .stat-name.long-form {
+            display: none;
+        }
+        & .stat-name.short-form {
+            display: block;
+        }
+    }
+}
+
+.statContainer.stat-total {
+    font-style: italic;
+    color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.statLabelContainer {
+    width:100%;
+    position:relative;
+    text-align:left;
+}
+.statNum {
+    width:40px;
+    text-align:right;
+    margin:5px 10px 0;
+    float:right;
+}
+
+.skillLabel {
+    margin-left:18px;
+}
+
+.thinProgressBarUpper, .thinProgressBarLower {
+    width:90%;
+    background-color: var(--progress-bar-background);
+    display:block;
+    margin:0 auto 2px auto;
+}
+#statsColumn .statBars {
+    display: contents;
+}
+#statsColumn :is(.thinProgressBarUpper, .thinProgressBarLower):not(.tiny) {
+    width:auto;
+    margin:0 10px 2px 18px;
+}
+.thinProgressBarUpper { height:4px; }
+.thinProgressBarLower { height:3px; }
+
+.thickProgressBar {
+    background-color: var(--progress-bar-background);
+    display:inline-block;
+    margin:0 2px 2px 2px;
+    height:8px;
+}
+
+.statBarWrapper {
+    /* anchored by a stat-* grid placement class */
+    position: relative;
+    z-index: 0;
+    & .thinProgressBarLower {
+        position: absolute;
+        inset: 0;
+        height: auto;
+        width: auto;
+        z-index: 0;
+        margin: 0;
+        &::after {
+            content: "";
+            position: absolute;
+            inset:2px;
+            background-color: color-mix(in srgb, var(--body-background), transparent 20%);
+        }
+    }
+    & .label {
+        position: relative;
+        margin: 0 3px 2px 2px;
+        display: block;
+    }
+}
+.statBar {
+    height:100%;
+    width:0;
+    display:block;
+}
+.logBar {
+    width: calc(var(--bar-value,0) / var(--max-bar-value,1) * (100% - 4px));
+}
+.animate-logBars .logBar {
+    transition: width 100ms ease;
+}
+.statLevelLogBar, .townExpBar, .skillExpBar {
+    background-color: var(--progress-bar-primary-color);
+}
+.statLevelBar {
+    background-color: color-mix(in srgb, var(--progress-bar-primary-color), transparent 25%);
+}
+.statTalentLogBar {
+    background-color: var(--progress-bar-talent-color);
+}
+.statTalentBar {
+    background-color: var(--progress-bar-talent-color);
+    background-color: color-mix(in srgb, var(--progress-bar-talent-color), transparent 25%);
+}
+.statSoulstoneLogBar,
+.townBar {
+    background-color: var(--progress-bar-town-color);
+}
+.use-stat-colors {
+    & .statLevelLogBar {
+        background-color: var(--stat-color);
+    }
+    & .statTalentLogBar {
+        background-color: color-mix(in srgb, var(--stat-color), var(--progress-bar-talent-color) 75%);
+    }
+    & .statSoulstoneLogBar {
+        background-color: color-mix(in srgb, var(--stat-color), var(--progress-bar-town-color) 75%);
+    }
+}
+.segmentBar {
+    height:100%;
+    display:block;
+    width:100%;
+    float:right;
+}
+
+#shortTownColumn {
+    display: flex;
+    flex-direction: column;
+    
+    border: 3px solid var(--zone-color);
+    border-radius: 6px;
+}
+
+#townWindow {
+    --default-background: color-mix(in srgb, var(--zone-color) 50%, var(--next-actions-background));
+    background: var(--default-background);
+    border-bottom: 1px solid var(--zone-color);
+    margin-bottom: 1ex;
+    position: relative;
+}
+
+#townActionTitle {
+    background: color-mix(in srgb, var(--zone-color) 25%, var(--body-background));
+    border-top: 1px solid var(--zone-color);
+    border-bottom: 1px solid var(--zone-color);
+    margin: 2ex 0 1ex;
+    padding: 0.5ex 0;
+    width: 100%;
+}
+
+#hideVarsButton, .hideVarButton {
+    position: absolute;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    margin: auto 5px;
+    inset: 0 0 0 auto;
+    line-height: 24px;
+    text-align: center;
+    opacity: 0.5;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+:root:not(.editing-hidden-vars) .hideVarButton {
+    display: none;
+}
+
+:root.editing-hidden-vars #hideVarsButton {
+    font-weight: 900;
+    opacity: 1;
+}
+
+.hideVarButton::before {
+    content: "\f06e"; /* fa-eye */
+}
+
+.user-hidden .hideVarButton::before {
+    content: "\f070"; /* fa-eye-slash */
+}
+
+:root:not(.editing-hidden-vars) .user-hidden {
+    display: none !important; /* one of the few cases where I feel !important is justified */
+}
+
+.user-hidden.townStatContainer, .user-hidden > :is(.townStatContainer,.townInfoContainer) {
+    opacity: 0.5;
+}
+
+#townInfos {
+    display: block;
+}
+
+.townStatContainer {
+    width:100%;
+    text-align:left;
+    padding:0 10px 0;
+    position: relative;
+}
+
+.townInfoContainer {
+    width:100%;
+    text-align:left;
+    padding:0 10px 0;
+    position: relative;
+}
+
+.townInfo {
+    display:grid;
+    text-align:left;
+    grid-template-columns: [full-row-start] repeat(2, max-content) [progress-value-start] repeat(2, max-content) [progress-value-end] repeat(2, max-content) [progress-bars-start] repeat(2, max-content) 1fr [progress-bars-end full-row-end];
+    grid-auto-rows: minmax(32px,1fr);
+    align-items: center;
+    gap: 4px;
+}
+
+.townContainer {
+    display: contents;
+}
+.townContainer > div {
+    grid-column: full-row;
+}
+.townContainer > br {
+    display: none;
+}
+
+.townContainer.infoType {
+    display: contents;
+}
+.townContainer.infoType > div.townInfoContainer {
+    display: grid;
+    grid-template-columns: [full-row-start] repeat(2, max-content) [progress-value-start] repeat(2, max-content) [progress-value-end] repeat(2, max-content) [progress-bars-start] repeat(2, max-content) 1fr [progress-bars-end full-row-end];
+    grid-template-columns: subgrid;
+    gap: 0.5em;
+    align-items: center;
+}
+div.townInfoContainer > .numeric {
+    text-align: right;
+}
+
+.townContainer.progressType > div.townStatContainer {
+    display: grid;
+    grid-template-columns: [full-row-start] repeat(2, max-content) [progress-value-start] repeat(2, max-content) [progress-value-end] repeat(2, max-content) [progress-bars-start] repeat(2, max-content) 1fr [progress-bars-end full-row-end];
+    grid-template-columns: subgrid;
+    row-gap: 2px;
+}
+
+.townContainer.progressType .townLabel {
+    grid-column-start: full-row-start;
+    grid-column-end: progress-value-start;
+}
+
+.townContainer.progressType .progressBars {
+    grid-column: progress-bars;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.townContainer.progressType .thinProgressBarUpper {
+    flex: 4;
+}
+.townContainer.progressType .thinProgressBarLower
+{
+    flex: 3;
+}
+.townContainer.progressType .thinProgressBarUpper,
+.townContainer.progressType .thinProgressBarLower {
+    margin: 0 25px 0 0;
+    width: auto;
+}
+
+.townContainer.progressType .progressValue {
+    grid-column: progress-value;
+    text-align: right;
+}
+
+.townContainer.multipartType {
+    & > div.townStatContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    & .flexMargin {
+        flex: 0 1 25px;
+    }
+    & .multipartLabel {
+        display: flex;
+        & .townLabel {
+            margin: 0 0 0 0;
+        }
+        & .completedInfo {
+            margin: 0 0 0 auto;
+            text-align: right;
+        }
+        flex-wrap: wrap;
+    }
+    & .multipartBars {
+        display: flex;
+        margin: 0 25px;
+        justify-content: stretch;
+        & .thickProgressBar {
+            flex: 1;
+            margin: 0;
+        }
+        gap: 4px;
+    }
+
+}
+.multibars {
+    display: flex;
+}
+
+#townActions {
+    position: relative;
+}
+
+.actionOptions {
+    text-align:center;
+}
+
+.actionStories {
+    text-align:center;
+    min-height:470px;
+}
+
+.actionDiv, .travelDiv {
+    display: block;
+}
+
+.actionOrTravelContainer {
+    cursor:pointer;
+    position: relative;
+    height:50px;
+    /* 0.928571 ≅ 13/14, 14px * 13/14 = 13px */
+    font-size: 0.928571rem;
+    border: 3px solid transparent;
+    border-radius: 10px;
+}
+.actionContainer {
+    width:96px;
+    margin:0 2px;
+}
+.travelContainer {
+    display:block;
+    width:205px;
+    margin:2px auto;
+}
+
+.actionOrTravelContainer:hover {
+    background-color: var(--action-hover-background);
+}
+.actionHighlight {
+    background: var(--action-highlight-background);
+    border: 3px solid var(--action-highlight-border);
+    border-radius: 10px;
+}
+
+.actionOrTravelContainer .stat-pie {
+    display: none;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    bottom: 2px;
+    opacity: 0;
+    transition-duration: 50ms;
+    transition-property: opacity, width, height;
+
+    &:is(div) {
+        clip-path: circle(50%);
+        opacity: 0.75;
+        pointer-events: none;
+        --pie-ratio: 0.25;
+    }
+}
+
+:root.shift-key-pressed .cappableActionContainer > label::after {
+    content: "*"
+}
+
+#addActionAtCapText {
+    display: none;
+    position: absolute;
+    inset: auto 0.5em 4px auto;
+}
+
+:root.shift-key-pressed #addActionAtCapText {
+    display: block;
+}
+
+.show-stat-hints .actionOrTravelContainer .stat-pie {
+    display: initial;
+}
+
+.actionOrTravelContainer:hover .stat-pie {
+    opacity: 1;
+    transition-duration: 200ms;
+    width: 32px;
+    height: 32px;
+
+    &:is(div) {
+        opacity:0;
+    }
+}
+
+.actionOrTravelContainer.locked .stat-pie {
+    display: none;
+}
+
+dl.action-stats {
+    display: block;
+    margin: 0;
+
+    &::before {
+        content: "(";
+    }
+
+    & > dt {
+        display: inline;
+        margin: 0;
+        font-weight: bold;
+
+        &::after {
+            color: var(--text-color);
+            content: ": ";
+        }
+    }
+
+    & > dd {
+        display: inline;
+        margin: 0;
+
+        &::after {
+            content: "; ";
+            font-weight: normal;
+        }
+        &:last-child::after {
+            content: none;
+        }
+    }
+
+    &::after {
+        content: ")";
+    }
+}
+
+.use-stat-colors dl.action-stats dt {
+    color: var(--stat-color);
+}
+
+.actionOrTravelContainer:has(.stat-pie g:hover) dl.action-stats :is(dt,dd) {
+    font-weight: normal;
+}
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Str:hover) dl.action-stats .stat-Str,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Dex:hover) dl.action-stats .stat-Dex,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Con:hover) dl.action-stats .stat-Con,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Per:hover) dl.action-stats .stat-Per,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Int:hover) dl.action-stats .stat-Int,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Cha:hover) dl.action-stats .stat-Cha,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Spd:hover) dl.action-stats .stat-Spd,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Luck:hover) dl.action-stats .stat-Luck,
+.actionOrTravelContainer:has(.stat-pie .pie-slice.stat-Soul:hover) dl.action-stats .stat-Soul {font-weight: bold;}
+
+.storyContainer {
+    width: 102px;
+    height: 50px;
+    vertical-align: top;
+    font-size: 0.928571rem;
+    border: 1px solid var(--story-border);
+    color: var(--story-button-color);
+    background: var(--story-background);
+    box-shadow: -2px 2px 1px var(--story-button-shadow);
+    border-radius: 5px;
+    margin: 3px;
+    fill: var(--story-button-fill);
+}
+.storyContainer:is(:hover,:focus-within) {
+    border-radius: 0px;
+    box-shadow: none;
+}
+.storyContainerCompleted {
+    color: var(--story-button-completed-color);
+    background: var(--story-completed-background);
+}
+
+#actionLog {
+    min-height: 100px;
+    max-height: 200px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.actionLogEntry {
+    margin-top:0.1lh;
+    margin-left: 40px;
+    position: relative;
+    overflow-anchor: none;
+    transition: 500ms ease;
+    transition-property: font-size, opacity;
+}
+.actionLogEntry[data-repeatable] {
+    font-size:0.9rem;
+    opacity:0.8;
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+.actionLogEntry[data-unique],
+.actionLogEntry:not(:has(~.actionLogEntry[data-unique])){
+    font-size:1rem;
+    opacity:1;
+}
+.actionLogEntry::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 -40px;
+    z-index: -1;
+    background-color: var(--action-log-highlight-background-transparent);
+    transition: background-color 1s ease-in 0.25s;
+}
+.actionLogEntry.highlight::before {
+    background-color: var(--action-log-highlight-background);
+    transition: none;
+}
+
+li#actionLogLoadPrevious {
+    display: none;
+    text-align: center;
+    cursor: pointer;
+    align-self: center;
+    margin: 0 0 1ex;
+    opacity: 0.8;
+    overflow-anchor: none;
+}
+
+li#actionLogLatest {
+    order: calc(infinity);
+    text-align: center;
+    opacity: 0.5;
+    margin: 1ex 0 0;
+}
+
+#actionLog.hasPrevious > #actionLogLoadPrevious {
+    display: inline-block;
+}
+
+#actionsColumn {
+    width:350px;
+    vertical-align:top;
+}
+
+#curActionsListContainer {
+    width: 35%;
+    height: 100%;
+    background-color: var(--cur-actions-background);
+    position: relative;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+#nextActionsListContainer {
+    width: 65%;
+    height: 100%;
+    background-color: var(--next-actions-background);
+    vertical-align: top;
+    margin-left: -4px;
+    position: relative;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.t-cubic #curActionsListContainer,
+.t-cubic #nextActionsListContainer,
+.t-cubic #shortTownColumn {
+    border-radius: 0;
+}
+
+.nextActionContainer, .curActionContainer {
+    display: flex;
+    align-items: center;
+    margin-left:3px;
+    padding-top:1px;
+    padding-bottom:1px;
+    border-bottom:1px solid var(--action-separator-border);
+    position:relative;
+}
+.nextActionContainer {
+    justify-content: space-between;
+    width: 205px;
+    height: 20px;
+}
+.nextActionContainer.zone-collapsed:not(.action-is-collapsing-zone) {
+    display: none;
+}
+.nextActionContainer.action-disabled {
+    opacity: 0.5;
+}
+
+.nextActionContainer:not(.action-is-training, .action-has-limit) .nextActionButtons .capButton,
+.nextActionContainer.action-is-singular :is(.plusButton, .minusButton, .splitButton),
+.nextActionContainer:not(.action-is-travel) .nextActionButtons .collapseButton
+{
+    display: none;
+}
+
+.nextActionContainer.user-collapsed .nextActionButtons .collapseButton::before {
+    content:"\f424"; /* fa-expand-alt */
+}
+.nextActionContainer.user-disabled .nextActionButtons .skipButton::before {
+    content:"\f058"; /* fa-check-circle */
+}
+
+.nextActionButtons {
+    margin-top: 1px;
+    margin-right: 3px;
+    margin-left: auto;
+    order: 1;
+    display: flex;
+    gap: 2px;
+    justify-content: end;
+}
+.nextActionButtons > * {
+    flex-shrink:0;
+}
+.curActionContainer {
+    width: 102px;
+    height: 20px;
+}
+
+#curActionsList, #nextActionsList {
+    overflow-x: hidden !important;
+}
+
+#curActionsList {
+    margin-top: 10px;
+    text-align: left;
+    max-height: 457px;
+    overflow: auto;
+    width: 100%;
+}
+
+#curActionsManaUsed {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    display: flex;
+    gap: calc(1lh - 1em);
+    flex-direction: column;
+}
+
+#nextActionsList {
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+    max-height: 457px;
+    overflow: auto;
+}
+
+#nextActionsAmountButtons {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+/* General scrollbar styling */
+* {
+    &::-webkit-scrollbar  {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-background);
+    }
+
+    &::-webkit-scrollbar-thumb   {
+        background: var(--scrollbar-button-background);
+    }
+
+    &::-webkit-scrollbar-thumb:hover  {
+        background: var(--scrollbar-button-hover-background);
+    }
+
+    &::-webkit-scrollbar-button  {
+        color: var(--scrollbar-button-color);
+        background-color: var(--scrollbar-button-background);
+    }
+
+    &::-webkit-scrollbar-button:vertical:decrement {
+        background-image: var(--scrollbar-button-vertical-decrement-background);
+        background-size: 17px 17px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-button:vertical:increment {
+        background-image: var(--scrollbar-button-vertical-increment-background);
+        background-size: 17px 17px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-button:vertical:decrement:end, &::-webkit-scrollbar-button:vertical:increment:start {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-button:hover {
+        background-color: var(--scrollbar-button-hover-background);
+    }
+
+    /*styled scrollbar for firefox ( why can't there just be one browser that everybody uses :( )*/
+
+    scrollbar-color: var(--scrollbar-button-background) var(--scrollbar-track-background);
+}
+
+/* Actions scrollbar styling */
+#nextActionsList, #curActionsList, .showthis2 {
+    &::-webkit-scrollbar-track {
+        background: var(--actions-scrollbar-track-background);
+    }
+
+    &::-webkit-scrollbar-thumb   {
+        background: var(--actions-scrollbar-button-background);
+    }
+
+    &::-webkit-scrollbar-thumb:hover  {
+        background: var(--actions-scrollbar-button-hover-background);
+    }
+
+    &::-webkit-scrollbar-button  {
+        color: var(--actions-scrollbar-button-color);
+        background-color: var(--actions-scrollbar-button-background);
+    }
+
+    &::-webkit-scrollbar-button:hover {
+        background-color: var(--actions-scrollbar-button-hover-background);
+    }
+
+    /* styled scrollbar for standards-conformant browsers (look how much simpler this is) */
+    scrollbar-color: var(--actions-scrollbar-button-background) var(--actions-scrollbar-track-background);
+}
+
+.actionIcon {
+    text-align:center;
+    cursor:pointer;
+    width:12px;
+}
+.actionIcon:focus {
+    color: color-mix(in srgb, var(--action-icon-hover-color), currentColor);
+}
+.actionIcon:focus-visible {
+    outline: none;
+}
+.actionIcon:hover {
+    color: var(--action-icon-hover-color);
+    cursor:pointer;
+    background-color: var(--action-icon-hover-background);
+}
+
+.curActionBar {
+    height:100%;
+    width:0;
+    background-color: var(--cur-action-inprogress-background);
+    position:absolute;
+    opacity:.5;
+}
+
+.actionSelectedIndicator {
+    position: absolute;
+    opacity: 0;
+    background-color: var(--cur-action-selected-indicator);
+    width: 3px;
+    height: 100%;
+    left: -3px;
+}
+
+.townLabel {
+    margin-left:25px;
+}
+
+.completedInfo {
+    margin-right:25px;
+    float:right;
+}
+
+.hidden {
+    display:none !important;
+}
+
+.locked {
+    background-color: var(--action-locked-background);
+    cursor:default;
+    border-radius:10px;
+}
+.locked:hover {
+    background-color: var(--action-locked-hover-background);
+}
+
+.capped {
+    background-color: var(--action-capped-background);
+    cursor:default;
+    border-radius:10px;
+}
+.capped:hover {
+    background-color: var(--action-capped-hover-background);
+}
+
+.statTooltipPerc {
+    float: right;
+    margin-left: 3px;
+}
+
+#expandableList {
+    position:relative;
+    height:var(--action-list-height);
+    width:100%;
+}
+
+#curActionsList, #nextActionsList {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+#curActionsList {
+    max-height: calc(var(--action-list-height) - 55px);
+}
+#nextActionsList {
+    max-height: calc(var(--action-list-height) - 50px);
+}
+
+#nextActionsList[style*="none"] {
+    visibility: collapse;
+}
+
+/* Unused
+.resizable {
+    width: 10px;
+    height: 10px;
+    background: blue;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+}
+*/
+
+.draggedOverAction {
+    background: var(--action-hover-background) !important;
+}
+
+.draggedAction{
+    opacity:0.4;
+}
+
+.disabled .actionIcon {
+    display: none;
+}
+
+.imageDragFix {
+    pointer-events:none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#trackedResources .resource, #timeControls .control {
+  margin-right : 5px;
+}
+
+#trackedResources {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -15px;
+    height: 16px;
+}
+
+/* Unused
+#talentTree {
+    height: 700px;
+    width: 500px;
+    background: #e4ece5;
+}
+*/
+
+/* responsive layout */
+
+:root.responsive {
+    height: 100%;
+    overflow: clip;
+    /* Default browser font size = 16px, 16px * 7/8 = 14px */
+    font-size: 0.875rem;
+    /* don't let anything bleed outside and cause overscrolling issues */
+    contain: strict;
+}
+
+.responsive {
+    & body {
+        min-width: 0 !important;
+        display:grid;
+        grid:
+            "header header header" max-content
+            "actions town stats" minmax(0, 1fr)
+            / minmax(min-content, 1fr) minmax(535px, 2fr) minmax(min-content, 1fr)
+            ;
+        justify-items: stretch;
+    }
+
+    & #timeInfo {
+        /* width: 100vw !important; -- causes Chrome to have sad grid times? */
+        grid-area: header;
+        display: grid;
+        grid:
+            "time time time" 10px
+            "menu resources ." 16px
+            "menu controls ." auto
+            / 1fr max-content 1fr;
+        gap: 2px;
+    }
+
+    & body > br, & #timeInfo > br {
+        display: none;
+    }
+
+    & #timeBarContainer {
+        grid-area: time;
+    }
+
+    & #menu {
+        grid-area: menu;
+        text-align: left;
+        min-height: 30px;
+        height: auto !important;
+        margin-right: 0 !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    & #trackedResources {
+        grid-area: resources;
+    }
+
+    & #timeControls {
+        grid-area: controls;
+    }
+
+    & #statsColumn, & #actionsColumn, & #townColumn {
+        width: auto !important;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-bottom: 2ex;
+        flex-direction: column;
+        display: flex;
+    }
+
+    & #statsColumn {
+    grid-area: stats;  
+    }  
+
+    & #statsWindow > .showthat > .showthis {
+        right:0%;
+    }
+
+    & #buffList {
+        position: relative;
+    }
+
+    & #buffList > .showthat > .showthis {
+        bottom:100%;
+    }
+
+    & #actionsColumn {
+        grid-area: actions;
+        margin: 0 1em;
+        overflow: hidden;
+    }
+
+    & #actionList {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    }
+    & #actionList > *:not(.showthat, #actionChanges, #expandableList) {
+        display: none;
+    }
+
+    & #townColumn {
+        grid-area: town;
+    }
+
+    & #townWindow, & #townActionTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    & #townViewLeft, #townViewRight, #actionsViewLeft, & #actionsViewRight {
+        margin: 0 !important;
+    }
+    & #townWindow > div.showthat {
+        margin: 0 20px;
+    }
+
+    & #townWindow > div.showthat {
+        display: flex;
+        justify-content: center;
+    }
+
+    & #townInfos, & #townActions {
+        display: flex;
+        align-items: start;
+        overflow: clip visible;
+    }
+
+    & #townInfos > *, & #townActions > * {
+        flex: 0 0 100%;
+    }
+
+    /* This has to do with keeping towns the same height, but not doing that for now
+    & #townInfos > *[style*="none"], & #townActions > *[style*="none"] {
+        display:block !important;
+        visibility: hidden;
+        width: 100%;
+        order: 1;
+    }
+    */
+
+
+    & #actionsTitle {
+        margin: 0 40px;
+    }
+
+    & .actionOptions {
+        min-height:auto;
+    }
+    & .actionStories {
+        min-height:auto;
+    }
+
+    & .townStatContainer, & .townInfoContainer {
+        width: auto;
+        display: block;
+    }
+
+    & #actionChanges {
+        gap: 8px;
+    }
+    & #actionChanges > * {
+        flex: 1 1 content;
+        width: auto !important;
+    }
+
+    & #actionChangeButtons {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(2, max-content);
+        grid-auto-flow: column dense;
+        align-items: center;
+        gap: 2px;
+    }
+
+    & #curActionsListContainer {
+        flex: 0 1 content;
+        width: auto !important;
+        min-width: 6em;
+    }
+    & #nextActionsListContainer {
+        flex: 3 1 content;
+        width: auto !important;
+        contain: size;
+    }
+    & #curActionsListContainer, & #nextActionsListContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & #curActionsList, & #nextActionsList {
+        padding-bottom: 2ex;
+        max-height: none;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    & #nextActionsList[style*="none"] {
+        visibility: collapse;
+    }
+
+    & #curActionsManaUsed, & #nextActionsAmountButtons {
+        position: static;
+        width: auto;
+        margin-top: auto;
+    }
+
+    & .curActionContainer, & .nextActionContainer {
+        width: auto;
+    }
+
+    & .nextActionButtons {
+        margin-right: 10px;
+    }
+
+
+    & #expandableList {
+        flex: 1;
+        display: flex;
+        height:  20px !important;
+    }
+
+    & .actionOptions {
+        min-height: none;
+    }
+
+    & #trackedResources {
+        margin-bottom: 0;
+    }
+
+    & #actionLog {
+        max-height: none;
+        flex-grow: 1;
+    }
+}
+
+/* two-column view */
+@media (max-width: 1300px) {
+    :root.responsive {
+        height: auto;
+        min-height: 100%;
+        overflow: initial;
+        contain: none;
+    }
+    .responsive {
+        & body {
+            overflow: initial;
+            grid:
+                "menu" 30px
+                "time" 10px
+                "resources" 18px
+                "controls-main" min-content
+                "controls-options" min-content
+                "main" minmax(max-content, 1fr)
+                / 100%
+                ;
+        }
+        /* menu is at the top in mobile/two-column, but it doesn't stick */
+        & #menu {
+            grid-area: menu;
+            text-align: left;
+            min-height: 30px;
+            height: 30px !important;
+            width: 100%;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-around;
+            & li {
+                height: auto !important;
+                font-size: 0.9rem;
+                margin: 0 !important;
+            }
+        }
+
+        /* sticky elements need to be at root grid level */
+        & #timeInfo, & #timeControls {
+            display: contents;
+        }
+        /* these will cause problems with grid/flex */
+        & body > br, & #timeInfo > br {
+            display: none;
+        }
+    
+        & #timeBarContainer {
+            grid-area: time;
+            position: sticky !important;
+            z-index: 1;
+            top: 0px;
+        }
+
+        & #trackedResources {
+            grid-area: resources;
+            position: sticky;
+            z-index: 1;
+            background-color: var(--body-background);
+            padding-top:2px;
+            top: 10px;
+        }
+
+        & .t-dark #trackedResources {
+            background-color: var(--body-background);
+        }
+    
+        & #timeControlsMain {
+            grid-area: controls-main;
+            display: block;
+            position: sticky;
+            z-index: 1;
+            background: linear-gradient(var(--body-background) 50%, var(--body-background-transparent) 100%);
+            padding-top:2px;
+            top: 28px;
+        }
+
+        & .t-dark #timeControlsMain {
+            background: linear-gradient(var(--body-background) 50%, var(--body-background-transparent) 100%);
+        }
+    
+        & #timeControlsOptions {
+            grid-area: controls-options;
+            display: block;
+        }
+    
+        /* Main content area */
+    
+        & main {
+            grid-area: main;
+            display: grid;
+            height: 100%;
+            grid:
+                "actions town" minmax(600px, max-content)
+                "stats log"
+                / minmax(min-content,3fr) minmax(min-content,2fr);
+            margin-right:0.5em;
+        }
+        
+        & #townColumn {
+            display: contents;
+        }
+
+        & #statsColumn, & #actionsColumn, & #shortTownColumn, & #actionLogContainer {
+            overflow: initial;
+        }
+
+        & #statsWindow {
+            grid:
+                "title skills" 1lh
+                "selector skills" 1lh
+                "stats skills"
+                "buffs skills"
+                / minmax(min-content, 3fr) minmax(max-content, 2fr);
+            width: 100% !important;
+            box-sizing: border-box;
+            margin: 0 !important;
+            padding: 0 1em;
+            align-items: start;
+            justify-items: stretch;
+            justify-content: stretch;
+        }
+        & #skillList,
+        & #buffList {
+            display: flex;
+            flex-direction: column;
+            width: auto !important;
+        }
+    
+        & #actionsColumn {
+            grid-area: actions;
+            margin: 0 1em;
+            overflow: hidden;
+            contain: size;
+        }
+    
+        & #actionList {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        & #actionList > *:not(.showthat, #actionChanges, #expandableList) {
+            display: none;
+        }
+        
+        & #shortTownColumn {
+            display: block;
+            grid-area: town;
+        }
+        
+        & #townWindow {
+        }
+    
+        & #townWindow > div.showthat {
+            margin: 0 20px;
+        }
+    
+        & #townWindow > div.showthat {
+            display: flex;
+            justify-content: center;
+        }
+    
+        & #townInfos, & #townActions {
+            display: flex;
+            align-items: start;
+            overflow: clip visible;
+        }
+    
+        & #townInfos > *, & #townActions > * {
+            flex: 0 0 100%;
+        }
+    
+        & #actionsTitle {
+            margin: 0 40px;
+        }
+        & .actionOptions {
+            min-height:auto;
+        }
+        & .actionStories {
+            min-height:auto;
+        }
+    
+        & .townStatContainer, & .townInfoContainer {
+            margin-right: 1em;
+            padding: 0;
+            width: auto;
+            display: block;
+        }
+        & .townContainer .townLabel,
+        & .townContainer .thinProgressBarUpper,
+        & .townContainer .thinProgressBarLower,
+        & .townContainer .multipartBars {
+            margin: 0;
+        }
+        & .townContainer .flexMargin {
+            display: none;
+        }
+        & #curActionsListContainer, & #nextActionsListContainer {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        & #curActionsList, & #nextActionsList {
+            padding-bottom: 2ex;
+            max-height: none !important;
+            width: auto;
+            display: flex !important;
+            flex-direction: column;
+            flex: 1;
+        }
+    
+        & #nextActionsList[style*="none"] {
+            visibility: collapse;
+        }
+    
+        & #curActionsManaUsed, & #nextActionsAmountButtons {
+            position: static;
+            width: auto;
+            margin-top: auto;
+        }
+    
+        & .curActionContainer, & .nextActionContainer {
+            width: auto;
+        }
+    
+        & .nextActionButtons {
+            margin-right: 10px;
+        }
+    
+    
+        & #expandableList {
+            flex: 1;
+            display: flex;
+            height:  20px !important;
+        }
+    
+        & .actionOptions {
+            min-height: none;
+        }
+    
+        & #trackedResources {
+            margin-bottom: 0;
+        }
+        
+        & #actionLogContainer {
+            display: flex;
+            flex-direction: column;
+            grid-area: log;
+            height: 100%;
+        }
+    
+        & #actionLog {
+            margin-right:1em;
+            max-height: none;
+            flex-grow: 1;
+            contain: size;
+        }
+        
+        & .actionLogEntry {
+            margin-left: 1em;
+        }
+    }
+}
+/* mobile support, only for responsive */
+@media (max-width: 810px) {
+    .responsive {
+        & body {
+            width: 100vw;
+            min-height: 100vh;
+            display:grid;
+            grid:
+                "menu" 30px
+                "time" 10px
+                "resources" 18px
+                "controls-main" min-content
+                "controls-options" min-content
+                "main" minmax(max-content, 1fr)
+                "navbar" max-content
+                / 100vw
+                ;
+            justify-items: stretch;
+            overflow: initial;
+        }
+
+        /* Header area */
+
+        /* menu is at the top in mobile, but it doesn't stick */
+        & #menu {
+            grid-area: menu;
+            text-align: left;
+            min-height: 30px;
+            height: 30px !important;
+            width: 100%;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-around;
+            & li {
+                height: auto !important;
+                font-size: 0.9rem;
+                margin: 0 !important;
+            }
+        }
+
+        /* sticky elements need to be at root grid level */
+        & #timeInfo, & #timeControls {
+            display: contents;
+        }
+        /* these will cause problems with grid/flex */
+        & body > br, & #timeInfo > br {
+            display: none;
+        }
+    
+        & #timeBarContainer {
+            grid-area: time;
+            position: sticky !important;
+            z-index: 1;
+            top: 0px;
+        }
+
+        & #trackedResources {
+            grid-area: resources;
+            position: sticky;
+            z-index: 1;
+            background-color: var(--body-background);
+            padding-top:2px;
+            top: 10px;
+        }
+
+        & .t-dark #trackedResources {
+            background-color: var(--body-background);
+        }
+    
+        & #timeControlsMain {
+            grid-area: controls-main;
+            display: block;
+            position: sticky;
+            z-index: 1;
+            background: linear-gradient(var(--body-background) 50%, var(--body-background-transparent) 100%);
+            padding-top:2px;
+            top: 28px;
+        }
+
+        & .t-dark #timeControlsMain {
+            background: linear-gradient(var(--body-background) 50%, var(--body-background-transparent) 100%);
+        }
+    
+        & #timeControlsOptions {
+            grid-area: controls-options;
+            display: block;
+        }
+    
+        /* Navbar */
+
+        & #navbar {
+            grid-area: navbar;
+            display: flex;
+            position: sticky;
+            inset: auto 0 0 0;
+            height: 50px;
+            z-index: 1000;
+            background-color: var(--navbar-background);
+            gap: 1px;
+
+            & > a {
+                position: relative;
+                padding: 1em 0;
+                text-decoration: none;
+                background-color: var(--navbar-link-inactive-background);
+                flex: 1;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                color: var(--navbar-link-inactive-color);
+                
+                &:hover {
+                    background-color: var(--navbar-link-inactive-hover-color);
+                }
+            }
+        }
+
+        /* Main content area */
+    
+        & main {
+            grid-area: main main main none;
+            display: flex;
+
+            overflow: auto clip;
+            scroll-snap-type: x mandatory;
+            width: auto !important;
+        }
+
+        & #townColumn {
+            display: contents;
+        }
+
+        & #statsColumn, & #actionsColumn, & #shortTownColumn, & #actionLogContainer {
+            width: 100vw !important;
+            flex: none;
+            overflow: hidden;
+            padding-bottom: 2ex;
+            flex-direction: column;
+            display: flex;
+            scroll-snap-align: center;
+            box-sizing: border-box;
+        }
+
+        & #shortTownColumn {
+            order: 1;
+        }
+
+        & #actionsColumn {
+            order: 2;
+        }
+
+        & #actionLogContainer {
+            order: 3;
+        }
+
+        & #statsColumn {
+            order: 4;
+        }
+    
+        & #statsColumn {
+            grid-area: stats;  
+        }  
+    
+        & #statsWindow {
+            grid:
+                "title"
+                "selector"
+                "stats"
+                "skills"
+                "buffs";
+        }
+
+        & #statsWindow > .showthat > .showthis {
+            right:0%;
+        }
+    
+        & #buffList {
+            position: relative;
+        }
+    
+        & #buffList > .showthat > .showthis {
+            bottom:100%;
+        }
+    
+        & #actionsColumn {
+            grid-area: actions;
+            margin: 0 1em;
+            overflow: hidden;
+        }
+    
+        & #actionList {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        & #actionList > *:not(.showthat, #actionChanges, #expandableList) {
+            display: none;
+        }
+    
+        & #shortTownColumn {
+            grid-area: town;
+        }
+    
+        & #townWindow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+    
+        & #townWindow > div.showthat {
+            margin: 0 20px;
+        }
+    
+        & #townWindow > div.showthat {
+            display: flex;
+            justify-content: center;
+        }
+    
+        & #townInfos, & #townActions {
+            display: flex;
+            align-items: start;
+            overflow: clip visible;
+            padding-left: 1em;
+        }
+    
+        & #townInfos > *, & #townActions > * {
+            flex: 0 0 100%;
+        }
+    
+        & #townInfos > *[style*="none"], & #townActions > *[style*="none"] {
+            width: 100%;
+            order: 1;
+        }
+    
+    
+        & #actionsTitle {
+            margin: 0 40px;
+        }
+        & #actionsViewLeft, & #actionsViewRight {
+            margin: 0 !important;
+        }
+        & .actionOptions {
+            min-height:auto;
+        }
+        & .actionStories {
+            min-height:auto;
+        }
+    
+        & .townStatContainer, & .townInfoContainer {
+            width: auto;
+            display: block;
+        }
+        & #curActionsListContainer, & #nextActionsListContainer {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        & #curActionsList, & #nextActionsList {
+            padding-bottom: 2ex;
+            max-height: none !important;
+            width: auto;
+            display: flex !important;
+            flex-direction: column;
+            flex: 1;
+        }
+    
+        & #nextActionsList[style*="none"] {
+            visibility: collapse;
+        }
+    
+        & #curActionsManaUsed, & #nextActionsAmountButtons {
+            position: static;
+            width: auto;
+            margin-top: auto;
+        }
+    
+        & .curActionContainer, & .nextActionContainer {
+            width: auto;
+        }
+    
+        & .nextActionButtons {
+            margin-right: 10px;
+        }
+    
+    
+        & #expandableList {
+            flex: 1;
+            display: flex;
+            height:  20px !important;
+        }
+    
+        & .actionOptions {
+            min-height: none;
+        }
+    
+        & #trackedResources {
+            margin-bottom: 0;
+        }
+    
+        & #actionLog {
+            max-height: none;
+            flex-grow: 1;
+        }
+    }
+}
+
+/* dark theme */
+
+.t-dark .storyContainer .superLargeIcon,
+.t-dark .storyContainer .smallIcon {
+    filter: invert(0.8) hue-rotate(180deg) drop-shadow(-1px 1px 1px var(--story-icon-shadow-color));
+}
+
+.t-dark img {
+    filter: invert(0.8) hue-rotate(180deg);
+}
+
+/* cubic theme */
+
+.t-cubic * {
+    border-radius: 0;
+}
+
+.t-cubic .thickProgressBar {
+    border: 1px solid var(--default-border);
+    margin: 0 0 2px 2px;
+}
+
+.t-cubic .thinProgressBarUpper, .t-cubic .thinProgressBarLower {
+    border: 1px solid var(--default-border);
+}
+
+.t-cubic .thinProgressBarLower {
+    margin-top: -3px;
+}
+
+.t-cubic #timeBarContainer {
+    border: 1px solid var(--default-border);
+    border-left: none;
+    border-right: none;
+}
+
+.t-cubic .button {
+    border-radius: 0;
+}
+
+.t-cubic .showthis, .t-cubic .showthis2, .t-cubic .showthisH, .t-cubic .showthisname {
+    border: 1px solid var(--default-border);
+    border-radius: 0;
+}
+
+.t-cubic #nextActionsList::-webkit-scrollbar-button:vertical:decrement, .t-cubic #curActionsList::-webkit-scrollbar-button:vertical:decrement, .t-cubic .showthis2::-webkit-scrollbar-button:vertical:decrement {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.t-cubic #nextActionsList::-webkit-scrollbar-button:vertical:increment, .t-cubic #curActionsList::-webkit-scrollbar-button:vertical:increment, .t-cubic .showthis2::-webkit-scrollbar-button:vertical:increment {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.t-cubic .actionContainer {
+    margin: -0.5px -0.5px;
+    border: 1px solid var(--default-border);
+}
+
+.t-cubic .actionHighlight {
+    border: 1px solid var(--default-border);
+    border-radius: 0px;
+}
+
+.t-cubic .travelContainer {
+    margin-top: -0.5px;
+    border: 1px solid var(--default-border);
+}
+
+.t-cubic .storyContainer {
+    border-radius: 0;
+    margin: -0.5px -0.5px;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.t-cubic .locked {
+    border-radius: 0;
+}
+
+.t-cubic .capped {
+    border-radius: 0;
+}
+
+select.bold {
+    text-align: center;
+    border: 1px solid transparent;
+    background: var(--default-background);
+    font-size: 1.14286rem;
+    font-family: Arial, Helvetica, serif;
+    padding: 0;
+    color: var(--default-color);
+}
+
+select.bold:focus {
+    border-color: var(--town-select-focus-border);
+}

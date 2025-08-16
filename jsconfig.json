@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "allowJs": true,
+        "checkJs": true,
+        "moduleResolution": "node",
+        "noEmit": false,
+        "emitDeclarationOnly": true,
+        "declaration": true,
+        "declarationDir": "types",
+    },
+    "include": ["*.js", "views/*.js", "*.d.ts", "types.d.ts"],
+    "files": ["types.d.ts"],
+}

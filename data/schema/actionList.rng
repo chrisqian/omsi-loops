@@ -1,0 +1,512 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         xmlns:il="http://dmchurch.github.io/omsi-loops/schema/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="actions">
+            <interleave>
+                <optional>
+                    <element name="defs">
+                        <a:documentation>Definitions</a:documentation>
+                        <zeroOrMore>
+                            <ref name="anyDef"></ref>
+                        </zeroOrMore>
+                    </element>
+                </optional>
+                <zeroOrMore>
+                    <element name="refs">
+                        <zeroOrMore>
+                            <attribute>
+                                <anyName />
+                            </attribute>
+                        </zeroOrMore>
+                        <ref name="type.refs" />
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <ref name="anyAction"></ref>
+                </zeroOrMore>
+            </interleave>
+        </element>
+    </start>
+    <define name="type.refs" combine="interleave">
+        <element name="stats">
+            <zeroOrMore>
+                <element name="stat">
+                    <text />
+                </element>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="type.refs" combine="interleave">
+        <element name="skills">
+            <zeroOrMore>
+                <element name="skill">
+                    <text />
+                </element>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="type.refs" combine="interleave">
+        <element name="buffs">
+            <zeroOrMore>
+                <element name="buff">
+                    <text />
+                </element>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="anyDef" combine="choice">
+        <element name="defineAdjustment">
+            <attribute name="name" />
+            <zeroOrMore>
+                <ref name="numericAdjustment"></ref>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="numericEvaluation">
+        <choice>
+            <data type="decimal" />
+            <group>
+                <choice>
+                    <attribute name="value">
+                        <!-- <data type="decimal"/> -->
+                    </attribute>
+                    <ref name="baseValue"/>
+                </choice>
+                <zeroOrMore>
+                    <ref name="numericAdjustment"></ref>
+                </zeroOrMore>
+            </group>
+        </choice>
+    </define>
+    <define name="conditionalEvaluation">
+        <zeroOrMore>
+            <ref name="conditionalRules" />
+        </zeroOrMore>
+    </define>
+    <define name="conditionalRules" combine="choice">
+        <choice>
+            <element name="if">
+                <a:documentation>Execute a numeric evaluation and perform a test on its result.</a:documentation>
+                <il:label>If arbitrary value</il:label>
+                <ref name="numericEvaluation" />
+                <ref name="numericTests" />
+            </element>
+            <element name="ifCurrentValue">
+                <a:documentation>Test the current value of the numeric evaluation.</a:documentation>
+                <il:label>If current evaluation</il:label>
+                <ref name="numericCondition" />
+            </element>
+            <element name="ifResource">
+                <ref name="required-resourceName" />
+                <ref name="numericCondition" />
+            </element>
+            <element name="ifHasResource">
+                <ref name="required-resourceName" />
+                <ref name="booleanCondition" />
+            </element>
+            <element name="ifStoryFlag">
+                <ref name="required-storyFlagName" />
+                <ref name="booleanCondition" />
+            </element>
+            <element name="ifProgress">
+                <ref name="optional-varName" />
+                <ref name="numericCondition" />
+            </element>
+            <element name="ifGoodItems">
+                <ref name="optional-varName" />
+                <ref name="numericCondition" />
+            </element>
+            <element name="ifDiscoveredItems">
+                <ref name="optional-varName" />
+                <ref name="numericCondition" />
+            </element>
+            <element name="ifCheckedItems">
+                <ref name="optional-varName" />
+                <ref name="numericCondition" />
+            </element>
+        </choice>
+    </define>
+    <define name="required-statName">
+        <attribute name="statName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-skillName">
+        <attribute name="skillName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-buffName">
+        <attribute name="buffName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-prestigeBuffName">
+        <attribute name="prestigeBuffName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-resourceName">
+        <attribute name="resourceName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-storyFlagName">
+        <attribute name="storyFlagName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-actionName">
+        <attribute name="actionName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="optional-actionName">
+        <optional>
+            <ref name="required-actionName" />
+        </optional>
+    </define>
+    <define name="required-varName">
+        <attribute name="varName">
+            <il:source domain="varName">
+                <il:varName />
+            </il:source>
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="optional-varName">
+        <optional>
+            <ref name="required-varName" />
+        </optional>
+    </define>
+    <define name="required-functionName">
+        <attribute name="functionName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="required-adjustmentName">
+        <attribute name="adjustmentName">
+            <data type="NCName" />
+        </attribute>
+    </define>
+    <define name="booleanCondition">
+        <ref name="conditionalEvaluation" />
+        <optional>
+            <attribute name="inverted">
+                <choice>
+                    <value>inverted</value>
+                    <empty />
+                </choice>
+            </attribute>
+        </optional>
+    </define>
+    <define name="numericCondition">
+        <ref name="conditionalEvaluation" />
+        <ref name="numericTests" />
+    </define>
+    <define name="numericTests">
+        <optional>
+            <attribute name="min">
+                <data type="decimal" />
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="minExclusive">
+                <data type="decimal" />
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="max">
+                <data type="decimal" />
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="maxExclusive">
+                <data type="decimal" />
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="equals">
+                <data type="decimal" />
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="notEquals">
+                <data type="decimal" />
+            </attribute>
+        </optional>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="skillLevel">
+            <a:documentation>The current level in a given skill, as an integer.</a:documentation>
+            <il:label>Skill Level</il:label>
+            <ref name="required-skillName" />
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="buffLevel">
+            <a:documentation>The current level of a given buff, as an integer.</a:documentation>
+            <il:label>Buff Level</il:label>
+            <ref name="required-buffName" />
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="primaryValue">
+            <a:documentation>The current result of the "Primary Value" attribute of the given action (the current action, if omitted)</a:documentation>
+            <il:label>Primary Value of Action</il:label>
+            <ref name="optional-actionName" />
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="progressLevel">
+            <a:documentation>The current percentage level displayed to the user for the given action, as an integer.</a:documentation>
+            <il:label>Progress Level</il:label>
+            <ref name="required-varName">
+                <il:varName type="progress" />
+            </ref>
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="goodItems">
+            <a:documentation>The number of known-good items of a given action (the current action, if omitted), as an integer.</a:documentation>
+            <il:label>Total known-good items</il:label>
+            <ref name="required-varName">
+                <il:varName type="limited" />
+            </ref>
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="discoveredItems">
+            <a:documentation>The total number of items discovered of a given action (the current action, if omitted), as an integer.</a:documentation>
+            <il:label>Total discovered items</il:label>
+            <ref name="required-varName">
+                <il:varName type="limited" />
+            </ref>
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="checkedItems">
+            <a:documentation>The total number of items checked for a given action (the current action, if omitted), as an integer.</a:documentation>
+            <il:label>Total checked items</il:label>
+            <ref name="required-varName">
+                <il:varName type="limited" />
+            </ref>
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="value">
+            <a:documentation>A complex numeric evaluation, used as the source for this one.</a:documentation>
+            <il:label>Calculated Value</il:label>
+            <ref name="numericEvaluation" />
+        </element>
+    </define>
+    <define name="baseValue" combine="choice">
+        <element name="function">
+            <a:documentation>The result of calling a named JavaScript function.</a:documentation>
+            <il:label>JS function</il:label>
+            <!-- Functions named here must also be named in schema.js -->
+            <attribute name="name">
+                <choice>
+                    <value>getExploreProgress</value>
+                </choice>
+            </attribute>
+        </element>
+    </define>
+    <define name="numericAdjustment" combine="choice">
+        <choice>
+            <ref name="conditionalRules"></ref>
+            <element name="addition">
+                <ref name="numericEvaluation"/>
+            </element>
+            <element name="subtraction">
+                <ref name="numericEvaluation"/>
+            </element>
+            <element name="multiplier">
+                <ref name="numericEvaluation"/>
+            </element>
+            <element name="divisor">
+                <ref name="numericEvaluation"/>
+            </element>
+            <element name="adjustment">
+                <attribute name="name"/>
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="skillBonus">
+                <attribute name="name"/>
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="skillMod">
+                <attribute name="name"/>
+                <attribute name="minExclusive">
+                    <data type="integer" />
+                </attribute>
+                <attribute name="max">
+                    <data type="integer" />
+                </attribute>
+                <attribute name="percentChange">
+                    <data type="decimal" />
+                </attribute>
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="prestigeBonus">
+                <attribute name="name"/>
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="surveyBonus">
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="ceil">
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="floor">
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="round">
+                <ref name="conditionalEvaluation"/>
+            </element>
+            <element name="additiveBonus">
+                <oneOrMore>
+                    <ref name="numericAdjustment"></ref>
+                </oneOrMore>
+            </element>
+        </choice>
+    </define>
+    <define name="anyAction" combine="choice">
+        <element name="action">
+            <attribute name="type">
+                <value>progress</value>
+            </attribute>
+            <interleave>
+                <ref name="actionDefinition" />
+                <element name="progress">
+                    <ref name="numericEvaluation" />
+                </element>
+            </interleave>
+        </element>
+    </define>
+    <define name="anyAction" combine="choice">
+        <element name="action">
+            <attribute name="type">
+                <value>limited</value>
+            </attribute>
+            <interleave>
+                <ref name="actionDefinition" />
+                <element name="totalDiscovered">
+                    <ref name="numericEvaluation"></ref>
+                </element>
+                <element name="oneInEvery">
+                    <data type="positiveInteger"></data>
+                </element>
+                <element name="reward">
+                    <zeroOrMore>
+                        <ref name="resourceStack" />
+                    </zeroOrMore>
+                </element>
+            </interleave>
+        </element>
+    </define>
+    <define name="anyAction" combine="choice">
+        <element name="action">
+            <attribute name="type">
+                <value>normal</value>
+            </attribute>
+            <interleave>
+                <ref name="actionDefinition" />
+                <element name="reward">
+                    <zeroOrMore>
+                        <ref name="resourceStack" />
+                    </zeroOrMore>
+                </element>
+            </interleave>
+        </element>
+    </define>
+    <define name="resourceStack" combine="choice">
+        <element name="numericResource">
+            <attribute name="name" />
+            <ref name="numericEvaluation" />
+        </element>
+    </define>
+    <define name="resourceStack" combine="choice">
+        <element name="booleanResource">
+            <attribute name="name" />
+        </element>
+    </define>
+    <define name="resourceStack" combine="choice">
+        <element name="setStoryFlag">
+            <attribute name="name" />
+            <ref name="conditionalEvaluation" />
+        </element>
+    </define>
+    <define name="actionDefinition">
+        <attribute name="name" />
+        <optional>
+            <attribute name="varName" />
+        </optional>
+        <interleave>
+            <element name="expMult">
+                <ref name="numericEvaluation" />
+            </element>
+            <element name="storyReqs">
+                <zeroOrMore>
+                    <element name="story">
+                        <attribute name="num">
+                            <data type="integer"/>
+                        </attribute>
+                        <ref name="conditionalEvaluation" />
+                    </element>
+                </zeroOrMore>
+            </element>
+            <element name="stats">
+                <zeroOrMore>
+                    <element name="stat">
+                        <ref name="required-statName" />
+                        <data type="decimal"/>
+                    </element>
+                </zeroOrMore>
+            </element>
+            <optional>
+                <element name="affectedBy">
+                    <zeroOrMore>
+                        <element name="action">
+                            <attribute name="name"/>
+                        </element>
+                    </zeroOrMore>
+                </element>
+            </optional>
+            <optional>
+                <element name="primaryValue">
+                    <!-- this is goldCost() from the original -->
+                    <ref name="numericEvaluation" />
+                </element>
+            </optional>
+            <element name="effortCost">
+                <ref name="numericEvaluation" />
+            </element>
+            <element name="visible">
+                <ref name="conditionalEvaluation" />
+            </element>
+            <element name="unlocked">
+                <ref name="conditionalEvaluation" />
+            </element>
+            <optional>
+                <element name="cost">
+                    <zeroOrMore>
+                        <ref name="resourceStack" />
+                    </zeroOrMore>
+                </element>
+            </optional>
+            <optional>
+                <element name="allowed">
+                    <ref name="numericEvaluation" />
+                </element>
+            </optional>
+            <optional>
+                <element name="canStart">
+                    <ref name="conditionalEvaluation" />
+                </element>
+            </optional>
+        </interleave>
+    </define>
+</grammar>

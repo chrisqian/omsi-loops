@@ -1,0 +1,66 @@
+#predictorSettings, #predictorTrackedStatInput, #predictorTotalDisplay, #predictorStatisticDisplay {display: none;}
+.usePredictor :is(#predictorSettings, #predictorTrackedStatInput, #predictorTotalDisplay, #predictorStatisticDisplay) {display: initial;}
+#predictorTotalDisplay {padding-left: 50px;}
+
+.usePredictor {
+    --predictor-actions-width: 500px;
+}
+
+.usePredictor #actionsColumn {width: var(--predictor-actions-width);}
+.usePredictor #nextActionsListContainer {width: calc(var(--predictor-actions-width) - 120px);}
+
+ul.koviko {display: none}
+
+.usePredictor .nextActionContainer { width: auto!important;   grid-template: "a b . c" / auto auto 1fr auto; justify-content: stretch; }
+.usePredictor .nextActionContainer > div.nextActionLoops { width: 70px; flex: 0 0 auto;}
+.usePredictor .nextActionContainer > div.nextActionButtons{   grid-area: c; overflow: clip;min-width: 2em;flex: 0 1 auto;transition: 0.5s 1s flex-shrink;}
+.usePredictor .koviko.valid, .usePredictor .koviko.invalid { grid-area: b;pointer-events:auto }
+:root:not(.responsive) .usePredictor #nextActionsList{height:100%!important; overflow-y:scroll;}
+.usePredictor #curActionsListContainer{width:120px!important;}
+.usePredictor div.nextActionContainer.action-disabled .koviko.showthis{display:none;}
+:root:not(.responsive) .usePredictor #nextActionsList:hover{margin-left:-40%;padding-left:40%}
+.usePredictor #actionList>div:nth-child(2){left: 53px !important}
+.usePredictor #nextActionsList.disabled ul.koviko{display:none;}
+.usePredictor .nextActionContainer:nth-child(1n+9) .showthis {bottom: 5px; top: unset;}
+.usePredictor span.koviko{font-weight:bold;color:var(--predictor-color);}
+.usePredictor div.koviko{top:-5px;left:auto;right:100%}
+.usePredictor ul.koviko{list-style:none;margin:0;padding:0;display:flex;flex: 1 0 auto;overflow: clip;min-width: 0;transition: 0.5s 1s flex-shrink;}
+.usePredictor ul.koviko li{display:inline-block;margin: 0 2px;font-weight:bold;font-size:90%}
+.usePredictor ul.koviko.invalid li{color:var(--predictor-invalid-color)!important}
+.usePredictor ul.koviko.expired li, .usePredictor .expired .koviko{color:var(--predictor-expired-color)!important; transition: color 0s 0.1s;}
+.usePredictor ul.koviko .mana{color:var(--predictor-mana-color)}
+.usePredictor ul.koviko .manaBought{color:var(--predictor-manaBought-color)}
+.usePredictor ul.koviko .gold{color:var(--predictor-gold-color)}
+.usePredictor ul.koviko .rep{color:var(--predictor-rep-color)}
+.usePredictor ul.koviko .soul{color:var(--predictor-soul-color)}
+.usePredictor ul.koviko .herbs{color:var(--predictor-herbs-color)}
+.usePredictor ul.koviko .hide{color:var(--predictor-hide-color)}
+.usePredictor ul.koviko .potions{color:var(--predictor-potions-color)}
+.usePredictor ul.koviko .lpotions{color:var(--predictor-lpotions-color)}
+.usePredictor ul.koviko .blood{color:var(--predictor-blood-color)}
+.usePredictor ul.koviko .crafts{color:var(--predictor-crafts-color)}
+.usePredictor ul.koviko .adventures{color:var(--predictor-adventures-color)}
+.usePredictor ul.koviko .ritual{color:var(--predictor-ritual-color)}
+.usePredictor ul.koviko .artifacts{color:var(--predictor-artifacts-color)}
+.usePredictor ul.koviko .mind{color:var(--predictor-mind-color)}
+.usePredictor ul.koviko .stone{color:var(--predictor-stone-color)}
+.usePredictor ul.koviko .heroism{color:var(--predictor-heroism-color)}
+.usePredictor ul.koviko .power{color:var(--predictor-power-color)}
+.usePredictor ul.koviko .map{color:var(--predictor-map-color)}
+.usePredictor ul.koviko .completedMap{color:var(--predictor-completedMap-color)}
+.usePredictor ul.koviko .finLoops{color:var(--predictor-finLoops-color)}
+.usePredictor ul.koviko .heart{color:var(--predictor-heart-color)}
+.usePredictor ul.koviko .giants{color:var(--predictor-giants-color)}
+
+.usePredictor #nextActionsListContainer:has(.nextActionButtons:is(:hover,:focus-within)) {
+    & .nextActionButtons {
+        flex-shrink: 0;
+        transition-delay: 0s;
+        transition-duration: 0.1s;
+    }
+    & ul.koviko {
+        flex-shrink: 1;
+        transition-delay: 0s;
+        transition-duration: 0.1s;
+    }
+}
