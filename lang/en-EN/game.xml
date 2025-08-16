@@ -901,8 +901,8 @@
         <pause_before_restart>重启循环前暂停</pause_before_restart>
         <pause_on_failed_loop>未能完整执行循环则暂停</pause_on_failed_loop>
         <pause_on_complete>完成进度则暂停</pause_on_complete>
-        <restart_button>重启循环</restart_button>
-        <restart_text>只是重启循环。不是硬重置。</restart_text>
+        <restart_button>循环重置</restart_button>
+        <restart_text>只是循环重置。不是硬重置。</restart_text>
         <days>天</days>
         <hours>小时</hours>
         <minutes>分钟</minutes>
@@ -1639,22 +1639,22 @@
             </tooltip>
         </found_glasses>
         <buy_mana_z1>
-            <label>Buy Mana</label>
+            <label>买法力</label>
             <tooltip><![CDATA[
-            1 gold =
+            1金币换
             ]]></tooltip>
             <tooltip2><![CDATA[
-            mana. Buys all the mana you can.<br>Unlocked at 20% Explored.
+            法力。 Buys all the mana you can.<br>Unlocked at 20% Explored.
             ]]></tooltip2>
             <story_1><![CDATA[<b>Bought Mana:</b>⮀ A mana salesman?! For most people, this would only be a convenience, but given your current situation, this might be the most valuable thing you ever could have found.]]></story_1>
         </buy_mana_z1>
         <buy_mana_challenge>
-            <label>Buy Mana</label>
+            <label>买法力</label>
             <tooltip><![CDATA[
-            1 gold =
+            1金币换
             ]]></tooltip>
             <tooltip2><![CDATA[
-            mana. Buys all the mana you can.<br>The merchant only has 7500 mana to sell, though.<br>Unlocked at 20% Explored.
+            法力。 Buys all the mana you can.<br>The merchant only has 7500 mana to sell, though.<br>Unlocked at 20% Explored.
             ]]></tooltip2>
             <story_1><![CDATA[<b>Bought Mana:</b>⮀ You walk up to the mana stand, ready to throw your money at the man behind the counter, but he interrupts you before you can get a word out. "I'm sure you understand my <i>reasonable</i> prices, yes? Times are hard during this drought - my colleagues are all out of stock, and I only have 7500 mana left for sale myself." His prices are extortionate, but you pay them with gritted teeth, having no other option.]]></story_1>
 			<story_2><![CDATA[<b>7500 Mana Bought:</b>⮀ After you buy everything the man has for sale, he immediately states that he's out of stock and proceeds to slam the stall window on you. As he disappears, you spot a shadow of fear cross his face. He must have had to deal with a lot of angry would-be customers these days.]]></story_2>
@@ -2206,15 +2206,15 @@
 			<story_6><![CDATA[<b>Action failed with low money:</b>⮀ As you sit down at the table and reach into your pockets, you realize that you don't have any money left! You hastily excuse yourself and leave the casino, and try to ignore the looks of pity you're given as you go.]]></story_6>
         </gamble>
         <get_drunk>
-            <label>Get Drunk</label>
-            <label_done>Rumors Heard</label_done>
+            <label>喝酒</label>
+            <label_done>知晓传闻</label_done>
             <tooltip><![CDATA[
             Sometimes you just need a drink.<br>Requires a reputation above -4.<br>Has 3x exp/talent gain.<br>Costs 1 reputation.<br>Unlocked at 20% City Explored.
             ]]></tooltip>
 			<story_1><![CDATA[<b>1% Rumors Heard:</b>⮀ A mug of beer and a cheerful environment, it's equal parts relaxing and enjoyable. You leave without paying, but it's okay if you're not welcome there anymore, since they won't remember next loop.]]></story_1>
 			<story_2><![CDATA[<b>10% Rumors Heard:</b>⮀ Lots of people turn into rampant gossips after a few glasses. You're learning about all sorts of interesting places, as well as far too many cases of infidelity and other personal drama for your liking.]]></story_2>
 			<story_3><![CDATA[<b>20% Rumors Heard:</b>⮀ A dangerous-looking man shows up and orders the strongest drink they have, and as he drinks he loudly boasts about his adventures in the dungeon near town. With some prodding, he gives you directions instead to the Adventurer Guild, saying without a team you shouldn't even bother trying.]]></story_3>
-			<story_4><![CDATA[<b>30% Rumors Heard:</b>⮀ Today you sit next to a woodworker from the Crafting Guild. Apparently he spends his days building fine chairs and tables but his true passion is glasswork, which he sadly has no talent for. You commiserate, and get directions to the Crafting Guild before you leave.]]></story_4>
+			<story_4><![CDATA[<B>知晓传闻 30%</b>⮀ 今天你身边坐着一位工匠公会的木工。他说他打了一辈子精美的桌椅，但真正想干的却是吹玻璃，只可惜他在这方面毫无天分。你对此表示同情，临走前顺便打听了去工匠公会怎么走。]]></story_4>
 			<story_5><![CDATA[<b>40% Rumors Heard:</b>⮀ As you watch a loud drunken argument unfold, you see that the man next to you is looking rather glum. You buy a drink for him and he opens up, telling you that he quit his apprenticeship because he couldn't stand his boss. Another drink and he gives you the name of the master who needs a new apprentice.]]></story_5>
 			<story_6><![CDATA[<b>60% Rumors Heard:</b>⮀ An infuriated man rants about the construction work near his house. Talking to him is difficult without provoking his anger, but after a while he tells you what street it's happening on.]]></story_6>
 			<story_7><![CDATA[<b>80% Rumors Heard:</b>⮀ In a more high-class bar, you catch wind of an architectural design competition, where various architects each design the same house and the one with the best design wins the contract to build it. A polite inquiry gets you the name of the person you need to know to enter the competition.]]></story_7>
@@ -2244,7 +2244,7 @@
             <label>冒险者公会</label>
             <label_done>Impressed</label_done>
             <tooltip><![CDATA[
-            这里是冒险者的一站式中心。<br>来接受测试，评定级别吧！<br>每循环只能加入一个公会，且只有一次机会。<br>每个级别奖励200法力。<br>每点法力可将进度推进：((魔法技能)/2 + (自身战斗)) * (1 + 主属性 / 100) * sqrt(1 + 完成次数 / 1000) * (原始法力消耗/实际法力消耗) 。<br>Rumors Heard达到20% 时解锁.
+            这里是冒险者的一站式中心。<br>来接受测试，评定级别吧！<br>每循环只能加入一个公会，且只有一次机会。<br>每个级别奖励200法力。<br>每点法力可将进度推进：((魔法技能)/2 + (自身战斗)) * (1 + 主属性 / 100) * sqrt(1 + 完成次数 / 1000) * (原始法力消耗/实际法力消耗) 。<br>知晓传闻达到20%时解锁。
             ]]></tooltip>
 			<story_1><![CDATA[<b>接受测试</b>⮀ 参加公会的标准化测试后，你对测试成绩略感惊讶，没想到自己的排名会这么低。看来你曾经引以为傲的能力，在这里不过是堪堪入门。]]></story_1>
 			<story_2><![CDATA[<b>E Rank achieved:</b>⮀ You've clawed your way out of the ranks of the common riffraff. You still don't stand out at all, but it feels good to not be on the bottom rung anymore.]]></story_2>
