@@ -2222,7 +2222,7 @@ const Koviko = {
           tooltip += '<tr><td><b>'
           switch(i) {
             case "Fight Monsters":
-              tooltip += 'MON';
+              tooltip += '打死';
               break;
             case "Heal The Sick":
               tooltip += 'PT';
@@ -2276,7 +2276,7 @@ const Koviko = {
           tooltip += '<tr><td><b>NEXT</b><td>' +Math.floor(toNextLoop[currname].value*100*Math.pow(10,options.predictorNextPrecision))/Math.pow(10,options.predictorNextPrecision) +'%</td><td></td></tr>';
       }
       //Timer
-      tooltip+= '<tr><td><b>TIME</b></td><td>' + precision3(resources.totalTicks/50) + '</td><td>(+' + precision3(resources.actionTicks/50) + ')</td></tr>';
+      tooltip+= '<tr><td><b>累计用时</b></td><td>' + precision3(resources.totalTicks/50) + '</td><td>(+' + precision3(resources.actionTicks/50) + ')</td></tr>';
 
       var Affec = affected.map(name => {
         if (isNaN(resources[name])) this.updateHadNaNs = true;

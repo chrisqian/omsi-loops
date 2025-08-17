@@ -1622,7 +1622,7 @@
             ]]></tooltip2>
             <story_1><![CDATA[<b>House checked:</b>⮀ You manage to pick a lock that was in disrepair and opened the door, only to walk into the home's inhabitant. Good thing the loop ended not soon after. You're gonna have to figure out which houses are worth hitting. Some money wouldn't go astray.]]></story_1>
             <story_2><![CDATA[<b>50 Houses known:</b>⮀ You really should look at hitting those locked houses around, who knows what goodies you'll manage to scrounge up.]]></story_2>
-            <story_3><![CDATA[<b>10 Houses with loot:</b>⮀ You've figured out which houses are uninhabited and have enough gold for it to be worth your time. As they say, time is mana!]]></story_3>
+            <story_3><![CDATA[<b>10 Houses with loot:</b>⮀ You've figured out which houses are uninhabited and have enough gold for it to be worth your time. 俗话说的好，时间就是法力！]]></story_3>
 		    <story_4><![CDATA[<b>25 Houses with loot in a loop:</b>⮀ Some would say that entering a house from the back door instead of the front doesn't change what you find inside. Some people aren't masters of spatiomancy.]]></story_4>
         </pick_locks>
         <buy_glasses>
@@ -2209,11 +2209,11 @@
             <label>喝酒</label>
             <label_done>知晓传闻</label_done>
             <tooltip><![CDATA[
-            Sometimes you just need a drink.<br>Requires a reputation above -4.<br>Has 3x exp/talent gain.<br>Costs 1 reputation.<br>Unlocked at 20% City Explored.
+            有时候就是得喝上一杯。<br>声望须大于 -4。<br>经验/天赋获取变为3倍。<br>消耗 1 声望。<br>城市探索进度达到 20% 时解锁。
             ]]></tooltip>
-			<story_1><![CDATA[<b>1% Rumors Heard:</b>⮀ A mug of beer and a cheerful environment, it's equal parts relaxing and enjoyable. You leave without paying, but it's okay if you're not welcome there anymore, since they won't remember next loop.]]></story_1>
-			<story_2><![CDATA[<b>10% Rumors Heard:</b>⮀ Lots of people turn into rampant gossips after a few glasses. You're learning about all sorts of interesting places, as well as far too many cases of infidelity and other personal drama for your liking.]]></story_2>
-			<story_3><![CDATA[<b>20% Rumors Heard:</b>⮀ A dangerous-looking man shows up and orders the strongest drink they have, and as he drinks he loudly boasts about his adventures in the dungeon near town. With some prodding, he gives you directions instead to the Adventurer Guild, saying without a team you shouldn't even bother trying.]]></story_3>
+			<story_1><![CDATA[<b>知晓传闻 1%</b>⮀ 一扎啤酒，再加上热闹的氛围，让人既放松又愉快。你没结账就走了，不过没关系，就算被店家拉黑也无所谓啦，反正到下次循环他们就忘了。]]></story_1>
+			<story_2><![CDATA[<b>知晓传闻 10%</b>⮀ 很多人喝上几杯就变得特别爱八卦。你打听到不少有趣的地方线索，也被迫听到了一堆你不感兴趣的出轨丑闻和狗血家事。]]></story_2>
+			<story_3><![CDATA[<B>知晓传闻 20%</b>⮀ 一个面相凶狠的男人走进酒吧，点了杯最烈的酒，边喝边大声吹嘘自己在镇外地牢里的冒险经历。你追问了几句，他却让你去冒险者公会，而且还说，凑不齐队伍就别想了。]]></story_3>
 			<story_4><![CDATA[<b>知晓传闻 30%</b>⮀ 今天你身边坐着一位工匠公会的木工。他说他打了一辈子精美的桌椅，但真正想干的却是吹玻璃，只可惜他在这方面毫无天分。你对此表示同情，临走前顺便打听了去工匠公会怎么走。]]></story_4>
 			<story_5><![CDATA[<b>40% Rumors Heard:</b>⮀ As you watch a loud drunken argument unfold, you see that the man next to you is looking rather glum. You buy a drink for him and he opens up, telling you that he quit his apprenticeship because he couldn't stand his boss. Another drink and he gives you the name of the master who needs a new apprentice.]]></story_5>
 			<story_6><![CDATA[<b>60% Rumors Heard:</b>⮀ An infuriated man rants about the construction work near his house. Talking to him is difficult without provoking his anger, but after a while he tells you what street it's happening on.]]></story_6>
@@ -2221,12 +2221,12 @@
 			<story_8><![CDATA[<b>100% Rumors Heard:</b>⮀ You've been to every bar and dinner party, and heard every bit of gossip there is to hear. While you've only met a tiny fraction of Merchanton's population you've had drinks with every rung of society, and you're starting to feel like the city's running out of secrets for you to uncover.]]></story_8>
         </get_drunk>
         <buy_mana_z3>
-            <label>Buy Mana</label>
+            <label>买法力</label>
             <tooltip><![CDATA[
-            1 gold =
+            1金币换
             ]]></tooltip>
             <tooltip2><![CDATA[
-            mana. Buys all the mana you can.
+            法力。 Buys all the mana you can.
             ]]></tooltip2>
             <story_1><![CDATA[<b>Mana bought:</b>⮀ Unsurprisingly, a hub of commerce such as Merchanton has its fair share of mana vendors. You give the marketplace a once-over, then head back to the cheapest vendor you've found.]]></story_1>
         </buy_mana_z3>
@@ -2691,12 +2691,12 @@
             <story_7><![CDATA[<b>10,000 Messes Tidied Up:</b>⮀ There are patterns beneath all the noise, a beauty to the madness. If there's a shattered glass on the floor, there's probably a table within ten feet. If the table is broken, check the ceiling for forks and knives embedded in the roof. Piles of meat tend to occur no more than three times per feast, surrounded by a loose radial pattern of scorch marks. The feasts are a symphony, a mad dance set to an inaudible beat, and every step of the dance leaves an undeniable mark on the refuse left behind.]]></story_7>
 		</tidy_up>
 		<buy_mana_z5>
-            <label>Buy Mana</label>
+            <label>买法力</label>
             <tooltip><![CDATA[
-            1 gold =
+            1金币换
             ]]></tooltip>
             <tooltip2><![CDATA[
-            mana. Buys all the mana you can.
+            法力。 Buys all the mana you can.
             ]]></tooltip2>
             <story_1><![CDATA[<b>Mana bought:</b>⮀ Finding the God of Trade isn't hard, since he announces his presence loudly any time he's at the market. Apparently, he also has a lot of influence in the affairs of mortal traders, because he confirms that <i>he</i> sets the prices everyone else charges. Oh well, spares you the trouble of calculating exchange rates.]]></story_1>
 		</buy_mana_z5>
