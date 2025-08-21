@@ -2191,13 +2191,13 @@
 			<story_9><![CDATA[<b>100% City Explored:</b>⮀ You've seen all that Merchanton has to offer, from all levels of society. The one constant is that no matter where you go, people are busy. This city is a hub for rare items and clandestine deals, and fortunes are made and lost like water to the frantic beat of the city.]]></story_9>
         </explore_city>
         <gamble>
-            <label>Gamble</label>
-            <label_done>Suckers Swindled</label_done>
-            <info_text1>Suckers left</info_text1>
-            <info_text2>Suckers total</info_text2>
-            <info_text3>People to check if they&apos;re suckers</info_text3>
+            <label>赌钱</label>
+            <label_done>骗凯子</label_done>
+            <info_text1>凯子（本循环剩余数）</info_text1>
+            <info_text2>凯子（每循环可骗数）</info_text2>
+            <info_text3>待查是否为凯子</info_text3>
             <tooltip><![CDATA[
-            The cards still somehow come out different every time.<br>Has 2x exp/talent gain<br>Costs 20 gold and 1 reputation.<br>Requires a reputation above -6.<br>You win against every 10 suckers, and get 60 gold for winning.<br>Unlocked at 10% City Explored.
+            这牌……怎么每次发的都不一样<br>天赋对经验的影响额外乘2<br>消耗 20 金币和 1 声望<br>声望需大于-6<br>每碰到10个对手，你能打赢1个，赚60金币<br>城市探索进度达到 10% 时解锁
             ]]></tooltip>
 			<story_1><![CDATA[<b>Sucker checked:</b>⮀ You sit down at the poker table… and promptly lose everything you bet. It seems Merchanton has a very competitive gambling culture. Still, there must be some people you can win against.]]></story_1>
 			<story_2><![CDATA[<b>Sucker swindled:</b>⮀ You've found him, barely old enough to enter and clearly struggling to remember the rules of the game. It doesn't take long before all his money belongs to you, and you make a mental note to find him next time you come here.]]></story_2>
