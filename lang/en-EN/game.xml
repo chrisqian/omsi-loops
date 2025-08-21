@@ -728,7 +728,7 @@
 
         <prestige_bonus>
             <meta>
-                <title>Prestige Perks</title>
+                <title>转生加成</title>
             </meta>
             <PrestigePhysical>Increases Experience gain of all Physical stats (Dex, Str, Con, Spd, Per) by 20% per level.</PrestigePhysical>
             <PrestigeMental>Increases Experience gain of all Mental stats (Cha, Int, Soul, Luck) by 20% per level.</PrestigeMental>
@@ -1577,21 +1577,22 @@
             <story_2><![CDATA[<b>Moved 100 Temporal Stones:</b>⮀ Heavy and hidden as they are, the blue swirl that ignites on the rocks makes them a lot easier to track. That, and it helps that they "let" you pick them up.]]></story_2>
             <story_3><![CDATA[<b>Moved 250 Temporal Stones:</b>⮀ On the final stone-hauling trip from the Jungle to the Valley, you smirk a little at the various ditches and holes from which you pulled stones previously. Thank the stars you're done here.]]></story_3>
         </haulz6><!--town 1--><map>
-            <label>Purchase Map</label>
+            <label>买地图</label>
             <tooltip><![CDATA[The Explorers' guild has taught you how to use cartographer's kits to map your surroundings. This will help you keep track of things and, with some luck, find secrets you overlooked before.<br>
             There's a shop here in Beginnersville that will sell them for just ]]></tooltip>
             <tooltip2>gold each.</tooltip2>
 		    <story_1><![CDATA[<b>Bought a Map:</b>⮀ The map you purchase isn't exactly sparse; the roads are inked in with precision and all the major buildings are labeled. However, there's still a lot of work to do - many of the minor buildings are unlabeled, foliage is marked only as vague scribblings, and you distinctly recall several alleys that are missing on it. And this map is only for one small section of town; charting out the entirety of this place is going to take a lot of time... and a lot of ink. You wait until the attendant is occupied, then grab a set of scribing tools on your way out.]]></story_1>
         </map>
         <wander>
-            <label>Wander</label>
-            <label_done>Explored</label_done>
-            <tooltip>Explore the town, look for hidden areas and treasures.</tooltip>
-            <story_1><![CDATA[<b>20% Explored:</b>⮀ You know the general layout of the small village now, you don't get lost walking from one side to another!]]></story_1>
-            <story_2><![CDATA[<b>40% Explored:</b>⮀ You're starting to really know your way around, you can almost figure your way around without following a set path!]]></story_2>
-            <story_3><![CDATA[<b>60% Explored:</b>⮀ You've trod all the main roads and you avail yourself to the unkempt side paths and less well-worn paths. If you let yourself into some houses along the way, well, no one needs to know, do they?]]></story_3>
-            <story_4><![CDATA[<b>80% Explored:</b>⮀ You've decided to explore the houses now that you've trod every single feasible path in this small village. Man, the stuff people keep around.]]></story_4>
-            <story_5><![CDATA[<b>100% Explored:</b>⮀ You've been everywhere, there is absolutely nowhere in this town you haven't been. You've been in every cellar, under every bed, and in every closet. You've pried all the floorboards, and just in general, been into everything. Except the houses with locks, those dastardly locks.]]></story_5>
+            <label>闲逛</label>
+            <label_done>探索进度</label_done>
+            <tooltip>探索小镇，寻找隐藏区域和宝藏。</tooltip>
+            <story_1><![CDATA[<b>探索进度 20%</b>⮀ 你已熟悉这个小镇的大致布局，从一头走到另一头也不会迷路。]]></story_1>
+            <story_2><![CDATA[<b>探索进度 40%</b>⮀ 你对这里的环境愈发熟悉，几乎无需依赖固定路线，也能来去自如。]]></story_2>
+            <story_3><![CDATA[<b>探索进度 60%</b>⮀ 你走遍了所有主干道，开始踏足那些杂草丛生、鲜有人迹的小径。至于途中顺便溜进了几户人家嘛，反正也没人会知道的。]]></story_3>
+            <story_4><![CDATA[<b>探索进度 80%</b>⮀ 走遍了所有能走的路之后，你决定把目光投向这里的房屋。
+啧，这些人家里留着的东西，真是啥都有。]]></story_4>
+            <story_5><![CDATA[<b>探索进度 100%</b>⮀ 你走遍小镇的每个角落。你探过地窖，钻过床底，翻过壁橱，连地板缝都没放过。总之，你无孔不入。除了那些上了锁的房子。可恶的锁头！]]></story_5>
         </wander>
         <smash_pots>
             <label>Smash Pots</label>
@@ -1938,15 +1939,15 @@
             ]]></tooltip>
             <story_1><![CDATA[<b>Opening the Rift:</b>⮀ Angering the gods just to reach the shadow realm is so much work, and makes you feel a bit bad inside. Thinking back to your lessons with the witch, you conjure a huge amount of destructive and chaotic energy and begin to fray at the fabric between worlds. After a long and strenuous period of brutally exhausting work, you finally feel something give, and the dark energy seems to evaporate. In its place, a small rift has been torn through reality, big enough to fit through and stable enough that it won't shred you to pieces. You can't say the same for the threadbare bags of supplies you've haggled for so many times, but it's quite a feat even so. Excited, you eagerly step across to Startington!]]></story_1>
         </open_rift><!--town 2--><explore_forest>
-            <label>Explore Forest</label>
-            <label_done>Forest Explored</label_done>
+            <label>探索森林</label>
+            <label_done>森林探索进度</label_done>
             <tooltip><![CDATA[
-            What a pleasant area.<br>2x progress with glasses.
+            这里是个令人心旷神怡的地方。<br>携带眼镜时，探索进度x2。
             ]]></tooltip>
-            <story_1><![CDATA[<b>1% Forest explored:</b>⮀ You look at the side of the path from your little campsite, and are struck with a sense of wanderlust. You leave your camp to explore. Not too far from your campsite you find a tiny glade practically overflowing with mana.]]></story_1>
-            <story_2><![CDATA[<b>10% Forest explored:</b>⮀ Your sense of wanderlust hasn't faded, but you balk at the darker areas of the forest. You continue to find tiny glades filled with mana throughout the forest.]]></story_2>
-            <story_3><![CDATA[<b>20% Forest explored:</b>⮀ You follow what at first looked like a game trail, only to find that it was actually a branch off of a ragged footpath when you break through some tall bushes. You decide to follow the path. If it's been walked down so often, it must lead somewhere worthwhile.]]></story_3>
-            <story_4><![CDATA[<b>40% Forest explored:</b>⮀ You continue exploring the forest, and you've discovered something odd about it. One side of the main path is... calm, you suppose, peaceful even. Welcoming. The other makes you feel ill at ease, as if there are unseen eyes constantly on you. One side is light and airy, the other dark and gloomy.]]></story_4>
+            <story_1><![CDATA[<b>森林探索进度 1%</b>⮀ 你望着营地旁的小路，心中忽然升起一股想要探险的冲动。你离开营地开始探索。没走多远，你就发现了一片充盈着法力的林间空地。]]></story_1>
+            <story_2><![CDATA[<b>森林探索进度 10%</b>⮀ 那股探险的冲动依旧不减，但你对森林深处的阴暗地带有些犹豫。不过，你在森林中找到了不少法力充盈的空地。]]></story_2>
+            <story_3><![CDATA[<b>森林探索进度 20%</b>⮀ 你循着一条看似野兽踩出的踪迹前行，穿过一片高大的灌木从后才发现，那其实是从一条破旧小径分出来的岔路。你决定沿着那条小径走下去。既然有人常走，它会一定通向某个值得探索的地方。]]></story_3>
+            <story_4><![CDATA[<b>森林探索进度 40%</b>⮀ 你继续在森林中探索，渐渐发现这里有些诡异。主路的一侧静谧安宁，甚至带着几分亲切感。而另一侧却让你浑身不自在，仿佛有无形的目光在暗中注视着你。一侧明亮开阔，另一侧阴森压抑。]]></story_4>
             <story_5><![CDATA[<b>50% Forest explored:</b>⮀ You found flowers in the forest, growing in the almost pitch black beneath the thick canopy on the gloomy side of the forest. Yet the flowers grow. There's a desire to follow them, almost as if they're saying, "Follow Me!"]]></story_5>
             <story_6><![CDATA[<b>60% Forest explored:</b>⮀ You continue searching around the forest, finding tracks and trails, boltholes and hollowed out tree trunks. Life is abundant in this forest, and you're seeing that. On both sides.]]></story_6>
             <story_7><![CDATA[<b>80% Forest explored:</b>⮀ You've managed to figure out the favorite roaming spots of most of the herds in the forest by this point. You've also stumbled across a fair number of funny little green plants that resonate with mana, but in a form that you're unable to absorb. You wonder if they can be used for some other purpose.]]></story_7>
@@ -2887,7 +2888,7 @@
 			<story_1><![CDATA[<b>Fell From Grace:</b>⮀ As you brush the dust from your clothes, you silently marvel at how little effort it really took to get kicked out. Sure, you had big plans to go on a spree of madness and fire, but the Valkyries grabbed you by the time you finished burning down the first patch of flowers! Your court case afterward was just a formality as well, didn't even get to declare yourself guilty before the judge had you thrown into the Shadow Realm. It's kind of disappointing, you were looking forward to cutting loose.]]></story_1>
         </fall_from_grace><!--town 6--><meander>
             <label>徘徊</label>
-            <label_done>Explored</label_done>
+            <label_done>探索进度</label_done>
             <tooltip><![CDATA[
             This place seems familiar, and yet... not. Everything is twisted and wrong. Just being here hurts your head. You'll need to fortify your mind to make any progress here.<br>
             Gives exp equal to Imbue Mind level. (You make no progress with 0 Imbue Mind.)
@@ -3041,7 +3042,7 @@
         </fight_jungle_monsters>
         <explore_jungle>
             <label>Explore Jungle</label>
-            <label_done>Explored</label_done>
+            <label_done>探索进度</label_done>
             <tooltip><![CDATA[
             It would be easier to explore here if there wasn't something waiting to jump out at you behind every tree.<br>
             Gives progress based on Fight Jungle multiplier.<br>Gives 1 herb.
