@@ -499,7 +499,9 @@
                 </div>
             </div>
             <div id="actionLogContainer">
+                    <button class='button' style='margin-top: 5px; margin-right: 2px;' onclick='exportSave();pauseGame();'>导出存档并开始</button>
                 <div id="actionLogTitle" class="large bold block localized" data-lockey="actions>title_log" style="margin:10px auto 2px auto;text-align:center;"></div>
+                    <button class='button' style='margin-top: 1px;' onclick='importSave();pauseGame();'>导入存档并开始</button>
                 <ul id="actionLog">
                     <li id="actionLogLoadPrevious" class="small italic localized" data-lockey="actions>log>load_previous" onclick="actionLog.loadHistory(5)"></li>
                     <li id="actionLogLatest" class="small italic localized" data-lockey="actions>log>latest"></li>
