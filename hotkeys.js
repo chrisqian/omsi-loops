@@ -139,11 +139,14 @@ GameKeyboard.bindHotkey("backspace", () => changeActionAmount(Math.floor(actions
 GameKeyboard.bindHotkey("shift+s", () => saveList());
 GameKeyboard.bindHotkey("shift+l", () => loadList());
 GameKeyboard.bindHotkey("shift+c", () => clearList());
+//SL
+GameKeyboard.bindHotkey("k", () => {exportSave();pauseGame();});
+GameKeyboard.bindHotkey("l", () => {importSave();pauseGame();});
 
 GameKeyboard.bindRepeatableHotkey("=", () => adjustActionListSize(100));
 GameKeyboard.bindRepeatableHotkey("-", () => adjustActionListSize(-100));
 // devs need hotkeys too okay
-if (window.location.href.includes("http://10.0.0.3:8080/loops/")) GameKeyboard.bindHotkey("c", () => cheat());
+if (window.location.href.includes("http://127.0.0.1:5111/")) GameKeyboard.bindHotkey("c", () => cheat());
 
 GameKeyboard.bind("shift", () => setShiftKey(true), "keydown");
 GameKeyboard.bind("shift", () => setShiftKey(false), "keyup");
