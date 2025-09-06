@@ -140,8 +140,10 @@ GameKeyboard.bindHotkey("shift+s", () => saveList());
 GameKeyboard.bindHotkey("shift+l", () => loadList());
 GameKeyboard.bindHotkey("shift+c", () => clearList());
 //SL
-GameKeyboard.bindHotkey("k", () => {exportSave();pauseGame();});
-GameKeyboard.bindHotkey("l", () => {importSave();pauseGame();});
+GameKeyboard.bindHotkey("k", () => {if(!gameIsStopped) pauseGame();if(bonusActive)toggleOffline();exportSave();if(!bonusActive)toggleOffline();pauseGame();});
+GameKeyboard.bindHotkey("l", () => {if(!gameIsStopped) pauseGame();if(bonusActive)toggleOffline();importSave();if(!bonusActive)toggleOffline();pauseGame();});
+//GameKeyboard.bindHotkey("k", () => {exportSave();pauseGame();});
+//GameKeyboard.bindHotkey("l", () => {importSave();pauseGame();});
 
 GameKeyboard.bindRepeatableHotkey("=", () => adjustActionListSize(100));
 GameKeyboard.bindRepeatableHotkey("-", () => adjustActionListSize(-100));

@@ -595,6 +595,9 @@ class View {
             : lval);
     }
     updateTotalTicks() {
+        //总时间
+        document.getElementById("totaltime").textContent = `总时间：${formatTime(totals.effectiveTime + totalOfflineMs/1000)}`;
+        
         document.getElementById("totalTicks").textContent = `${formatNumber(actions.completedTicks)} | ${formatTime(timeCounter)}`;
         document.getElementById("effectiveTime").textContent = `${formatTime(effectiveTime)}`;
     };
