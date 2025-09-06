@@ -536,6 +536,8 @@ class View {
         this.adjustGoldCost({varName:"Wells", cost: Action.ManaWell.goldCost()});
     };
     updateOffline() {
+        //总时间
+        document.getElementById("totaltime").innerHTML = `真实用时：${formatTime(totals.effectiveTime)}<br>加速时间：${formatTime(totalOfflineMs/1000)}<br>总时间：${formatTime(totals.effectiveTime + totalOfflineMs/1000)}`;
         document.getElementById("bonusSeconds").textContent = formatTime(totalOfflineMs / 1000);
         const returnTimeButton = document.getElementById("returnTimeButton");
         if (returnTimeButton instanceof HTMLButtonElement) {
@@ -595,9 +597,6 @@ class View {
             : lval);
     }
     updateTotalTicks() {
-        //总时间
-        document.getElementById("totaltime").innerHTML = `真实用时：${formatTime(totals.effectiveTime)}<br>加速时间：${formatTime(totalOfflineMs/1000)}<br>总时间：${formatTime(totals.effectiveTime + totalOfflineMs/1000)}`;
-        
         document.getElementById("totalTicks").textContent = `${formatNumber(actions.completedTicks)} | ${formatTime(timeCounter)}`;
         document.getElementById("effectiveTime").textContent = `${formatTime(effectiveTime)}`;
     };
