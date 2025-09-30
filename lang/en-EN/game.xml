@@ -1627,16 +1627,16 @@
 		    <story_4><![CDATA[<b>单次循环内撬开25栋有贵重物品的房屋：</b>⮀ 有人认为，从后门进和从前门进不会影响你找到的东西。只能说，不是所有人都精通空间魔法。]]></story_4>
         </pick_locks>
         <buy_glasses>
-            <label>Buy Glasses</label>
+            <label>买眼镜</label>
             <tooltip><![CDATA[
-            That's not fair. There was time now. There was all the time I needed.<br>Now you have to get new glasses again for 10 gold!<br>Causes Wander to be 4x as effective for the rest of the loop.<br>Affects any action with the glasses icon<br>Can only have 1 Buy Glasses action.<br>Unlocked at 20% explored.
+            这不公平！本来时间还够的！我明明有足够时间的！<br>现在你得花10金币买副新眼镜！<br>在本循环中，使后续的「闲逛」效果提升为4倍。<br>对所有带有眼镜图标的行动生效。<br>探索进度达到20%时解锁。
             ]]></tooltip>
-            <story_1><![CDATA[<b>Glasses bought:</b>⮀ The world snaps into sharp focus as you put them on and you gawk a little as details that had slipped your eyes previously stood out in sharp contrast. You're a little gobsmacked at how much of a difference they make.]]></story_1><!-- Stories for Found Glasses won't show up because the action is always disabled, so we put its story here instead --><story_2><![CDATA[<b>Glasses found:</b>⮀ You grumble a little as you pull your backup glasses from your head and put them on. Got to give it to that merchant, he never so much as blinked in surprise while you were buying yet another pair from him.]]></story_2>
+            <story_1><![CDATA[<b>买到眼镜：</b>⮀ 当你戴上眼镜那一刻，整个世界瞬间变得无比清晰。那些曾被你忽略的细节如今在眼前格外鲜明，你不禁感叹，有没有眼镜的区别可太大了。]]></story_1><!-- Stories for Found Glasses won't show up because the action is always disabled, so we put its story here instead --><story_2><![CDATA[<b>找到眼镜：</b>⮀ 你一边嘟囔着，一边从头上拿下备用眼镜重新戴好。不得不佩服那位商人，每次你去他那儿买眼镜时，他愣是一个字都不提。]]></story_2>
         </buy_glasses>
         <found_glasses>
-            <label>Found Glasses</label>
+            <label>找到眼镜</label>
             <tooltip><![CDATA[
-            You could have sworn you had a spare pair of glasses somewhere. Now you've explored to the ends of the world. Every nook and cranny has revealed to you their secrets. And you've found them - in the last place anyone would ever think to look: on top of your head.<br>You now start all loops with glasses.]]>
+            你记得自己明明有一副备用眼镜的。你跑遍了整个世界，连最隐秘的角落都不曾放过。结果那副眼镜就在你自己头顶上。<br>从现在起，每次循环开始时你都会自带眼镜。]]>
             </tooltip>
         </found_glasses>
         <buy_mana_z1>
