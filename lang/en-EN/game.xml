@@ -1604,27 +1604,27 @@
             它们静静摆在那里，完好无损，蕴藏着无尽可能。<br>有法力的罐子里含有
             ]]></tooltip>
             <tooltip2><![CDATA[
-            点法力<br>每10个罐子，就有1个带法力的。
+            点法力<br>每10个罐子，可发现1个带法力的。
             ]]></tooltip2>
             <story_1><![CDATA[<br>50个带法力的罐子</br>⮀镇里的罐子你全都砸过一遍了，终于摸清了哪些是带法力的。只是，挨个动手砸太费事了。而且你吸收法力的技巧也挺一般。肯定还有更高效的办法才对。]]></story_1>
 		    <story_2><![CDATA[<b>75 Pots with mana:</b>⮀ There are a lot more pots around this town than you originally thought, many of them in the weirdest of places. Down drains, inside vents... there's one on the roof of this house and another inside the wood foundation of the house next door. You're not sure how many of them are deliberately hidden and how many are just lost, but you are sure you never would have found them if you hadn't spent so long combing every inch of this place.]]></story_2>
         </smash_pots>
         <pick_locks>
-            <label>Pick Locks</label>
-            <label_done>Locks Picked</label_done>
-            <info_text1>Houses with valuables left</info_text1>
-            <info_text2>Houses with valuables total</info_text2>
-            <info_text3>Houses to check for valuables</info_text3>
+            <label>撬锁</label>
+            <label_done>撬锁</label_done>
+            <info_text1>有贵重物品的房屋（当前循环剩余）</info_text1>
+            <info_text2>有贵重物品的房屋（每循环可用数）</info_text2>
+            <info_text3>待查是否有贵重物品的房屋</info_text3>
             <tooltip><![CDATA[
-            Don't worry; they won't remember.<br>Houses with valuables in them have
+            放心吧，他们不会记得的。<br>藏有贵重物品的房屋中有
             ]]></tooltip>
             <tooltip2><![CDATA[
-            gold.<br>Every 10 houses have gold.<br>Unlocked at 20% Explored.
+            金币。<br>每10栋房屋，可发现1个藏有金币的。<br>探索进度达到20%后解锁。
             ]]></tooltip2>
-            <story_1><![CDATA[<b>House checked:</b>⮀ You manage to pick a lock that was in disrepair and opened the door, only to walk into the home's inhabitant. Good thing the loop ended not soon after. You're gonna have to figure out which houses are worth hitting. Some money wouldn't go astray.]]></story_1>
-            <story_2><![CDATA[<b>50 Houses known:</b>⮀ You really should look at hitting those locked houses around, who knows what goodies you'll manage to scrounge up.]]></story_2>
-            <story_3><![CDATA[<b>10 Houses with loot:</b>⮀ You've figured out which houses are uninhabited and have enough gold for it to be worth your time. 俗话说的好，时间就是法力！]]></story_3>
-		    <story_4><![CDATA[<b>25 Houses with loot in a loop:</b>⮀ Some would say that entering a house from the back door instead of the front doesn't change what you find inside. Some people aren't masters of spatiomancy.]]></story_4>
+            <story_1><![CDATA[<b>检查房屋：</b>⮀ 你撬开了一把破旧的门锁。开门后却撞见屋主在家。好在离循环重置还早。看来得仔细挑挑哪些房子值得下手。毕竟，没人嫌钱烧手。]]></story_1>
+            <story_2><![CDATA[<b>发现50栋房屋：</b>⮀ 你应该考虑一下撬撬那些上锁的房子，谁知道里面藏着什么宝贝？]]></story_2>
+            <story_3><![CDATA[<b>发现10栋有贵重物品的房屋：</b>⮀ 你已经摸清了哪些房子不但没人住的，而且里面的金币值得你出手。俗话说的好，时间就是法力！]]></story_3>
+		    <story_4><![CDATA[<b>单次循环内撬开25栋有贵重物品的房屋：</b>⮀ 有人认为，从后门进和从前门进不会影响你找到的东西。只能说，不是所有人都精通空间魔法。]]></story_4>
         </pick_locks>
         <buy_glasses>
             <label>Buy Glasses</label>
@@ -2199,7 +2199,7 @@
             <tooltip><![CDATA[
             这牌……怎么每次发的都不一样<br>天赋对经验的影响额外乘2<br>消耗 20 金币和 1 声望<br>声望需大于-6<br>每碰到10个对手，你能打赢1个，赚60金币<br>城市探索进度达到 10% 时解锁
             ]]></tooltip>
-			<story_1><![CDATA[<b>Sucker checked:</b>⮀ You sit down at the poker table… and promptly lose everything you bet. It seems Merchanton has a very competitive gambling culture. Still, there must be some people you can win against.]]></story_1>
+			<story_1><![CDATA[<b>发现凯子</b>⮀ You sit down at the poker table… and promptly lose everything you bet. It seems Merchanton has a very competitive gambling culture. Still, there must be some people you can win against.]]></story_1>
 			<story_2><![CDATA[<b>Sucker swindled:</b>⮀ You've found him, barely old enough to enter and clearly struggling to remember the rules of the game. It doesn't take long before all his money belongs to you, and you make a mental note to find him next time you come here.]]></story_2>
 			<story_3><![CDATA[<b>30 Suckers swindled:</b>⮀ A fool and his money are soon parted, and you've found every fool in Merchanton. The money you conned them out of will be worth quite a lot of mana, easily worth the time you spent on it.]]></story_3>
             <story_4><![CDATA[<b>75 Suckers swindled:</b>⮀ Playing this guy is not good for your nerves. The fact that you couldn't see them until you used a bit of creative spatiomancy on the casino is already setting off alarm bells in the back of your head, but seeing them fidget with a coin by repeatedly folding and unfolding it seals it for you: these suckers are something else. Regardless, by the time you're done with them, you have a bunch more (mostly unfolded) coins weighing your pocket down.]]></story_4>
@@ -2213,8 +2213,8 @@
             有时，你只想整上一口。<br>声望须大于 -4。<br>天赋对经验的影响额外乘3。<br>消耗 1 声望。<br>城市探索进度达到 20% 时解锁。
             ]]></tooltip>
 			<story_1><![CDATA[<b>知晓传闻 1%</b>⮀ 一扎啤酒，再加上热闹的氛围，让人既放松又愉快。你没结账就走了，不过没关系，就算被店家拉黑也无所谓啦，反正到下次循环他们就忘了。]]></story_1>
-			<story_2><![CDATA[<b>知晓传闻 10%</b>⮀ 很多人喝上几杯就变得特别爱八卦。你打听到不少有趣的地方线索，也被迫听到了一堆你不感兴趣的出轨丑闻和狗血家事。]]></story_2>
-			<story_3><![CDATA[<B>知晓传闻 20%</b>⮀ 一个面相凶狠的男人走进酒吧，点了杯最烈的酒，边喝边大声吹嘘自己在镇外地牢里的冒险经历。你追问了几句，他却让你去冒险者公会，而且还说，凑不齐队伍就别想了。]]></story_3>
+			<story_2><![CDATA[<b>知晓传闻 10%</b>⮀ 很多人喝上几杯就变得特别爱八卦。你打听到不少有趣的地点，也被迫听到了一堆你不感兴趣的出轨丑闻和狗血家事。]]></story_2>
+			<story_3><![CDATA[<B>知晓传闻 20%</b>⮀ 一个面相凶狠的男人走进酒吧，点了杯最烈的酒，边喝边大声吹嘘自己在镇外地牢里的冒险经历。你追问了几句，他却让你先去冒险者公会，而且还说，凑不齐队伍就别想什么去冒险了。]]></story_3>
 			<story_4><![CDATA[<b>知晓传闻 30%</b>⮀ 今天你身边坐着一位工匠公会的木工。他说他打了一辈子精美的桌椅，但真正想干的却是吹玻璃，只可惜他在这方面毫无天分。你对此表示同情，临走前顺便打听了去工匠公会怎么走。]]></story_4>
 			<story_5><![CDATA[<b>40% Rumors Heard:</b>⮀ As you watch a loud drunken argument unfold, you see that the man next to you is looking rather glum. You buy a drink for him and he opens up, telling you that he quit his apprenticeship because he couldn't stand his boss. Another drink and he gives you the name of the master who needs a new apprentice.]]></story_5>
 			<story_6><![CDATA[<b>60% Rumors Heard:</b>⮀ An infuriated man rants about the construction work near his house. Talking to him is difficult without provoking his anger, but after a while he tells you what street it's happening on.]]></story_6>

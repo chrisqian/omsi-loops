@@ -536,8 +536,15 @@ class View {
         this.adjustGoldCost({varName:"Wells", cost: Action.ManaWell.goldCost()});
     };
     updateOffline() {
+        //掉率概览
+        document.getElementById("SSoverview").innerHTML = `
+        SD1F: ${intToString( dungeons[0][0].ssChance * 100, 4)}%<br>
+        LD1F: ${intToString( dungeons[1][0].ssChance * 100, 4)}%
+        `;
         //总时间
-        document.getElementById("totaltime").innerHTML = `真实用时：${formatTime(totals.effectiveTime)}<br>加速时间：${formatTime(totalOfflineMs/1000)}<br>总时间：${formatTime(totals.effectiveTime + totalOfflineMs/1000)}`;
+        document.getElementById("totaltime").innerHTML = `
+        真实用时：${formatTime(totals.effectiveTime)}<br>加速时间：${formatTime(totalOfflineMs/1000)}<br>总时间：${formatTime(totals.effectiveTime + totalOfflineMs/1000)}
+        `;
         document.getElementById("bonusSeconds").textContent = formatTime(totalOfflineMs / 1000);
         const returnTimeButton = document.getElementById("returnTimeButton");
         if (returnTimeButton instanceof HTMLButtonElement) {

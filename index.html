@@ -339,7 +339,7 @@
             <div id="actionList" style="width:100%;text-align:center;">
                 <div class="showthat">
                 <!--重置active列表-->
-                    <button class="button" style="z-index: 0;" onclick="exportSave();importSave();">重置</button>
+                    <button class="button" style="z-index: 0;" onclick="exportSave();importSave();">重置(r)</button>
         
                     <div class="large bold localized" style="margin-right: -49px;" data-lockey="actions>title_list"></div>
                     <span id="predictorTotalDisplay" class="koviko"></span>
@@ -502,10 +502,12 @@
                 </div>
             </div>
             <div id="actionLogContainer">
-                    <button class='button' style='margin-top: 5px; margin-right: 2px;' onclick='if(!gameIsStopped) pauseGame();if(bonusActive)toggleOffline();exportSave();if(!bonusActive)toggleOffline();pauseGame();'>存档并开始(K)</button>
+
                     <div id='totaltime'></div>
+                    <div id='SSoverview'></div>
                 <div id="actionLogTitle" class="large bold block localized" data-lockey="actions>title_log" style="margin:10px auto 2px auto;text-align:center;"></div>
-                    <button class='button' style='margin-top: 1px;' onclick='if(!gameIsStopped) pauseGame();if(bonusActive)toggleOffline();importSave();if(!bonusActive)toggleOffline();pauseGame();'>读档并开始(L)</button>
+                    <div width=100%><button class='button' style='width: 40%; margin-top: 5px; margin-right: 2px;' onclick='if(!gameIsStopped) pauseGame();if(bonusActive)toggleOffline();exportSave();if(!bonusActive)toggleOffline();pauseGame();'>存档并开始(K)</button>
+                    <button class='button' style='width: 40%; margin-top: 1px;' onclick='if(!gameIsStopped) pauseGame();if(bonusActive)toggleOffline();importSave();if(!bonusActive)toggleOffline();pauseGame();'>读档并开始(L)</button></div>
                 <ul id="actionLog">
                     <li id="actionLogLoadPrevious" class="small italic localized" data-lockey="actions>log>load_previous" onclick="actionLog.loadHistory(5)"></li>
                     <li id="actionLogLatest" class="small italic localized" data-lockey="actions>log>latest"></li>
