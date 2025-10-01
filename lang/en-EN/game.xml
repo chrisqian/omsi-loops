@@ -1636,7 +1636,7 @@
         <found_glasses>
             <label>找到眼镜</label>
             <tooltip><![CDATA[
-            你记得自己明明有一副备用眼镜的。你跑遍了整个世界，连最隐秘的角落都不曾放过。结果那副眼镜就在你自己头顶上。<br>从现在起，每次循环开始时你都会自带眼镜。]]>
+            你记得自己明明有一副备用眼镜的。如今你都已经走遍了整个世界。没想到，那副眼镜就在你头顶上。<br>从现在起，每次循环开始时你都会自带眼镜。]]>
             </tooltip>
         </found_glasses>
         <buy_mana_z1>
@@ -1647,7 +1647,7 @@
             <tooltip2><![CDATA[
             法力。 Buys all the mana you can.<br>Unlocked at 20% Explored.
             ]]></tooltip2>
-            <story_1><![CDATA[<b>Bought Mana:</b>⮀ A mana salesman?! For most people, this would only be a convenience, but given your current situation, this might be the most valuable thing you ever could have found.]]></story_1>
+            <story_1><![CDATA[<b>买到法力：</b>⮀ 法力商人？！对一般人来说，这不过是个小小的便利，可对你而言，这恐怕是你所能遇到的最宝贵的机会。]]></story_1>
         </buy_mana_z1>
         <buy_mana_challenge>
             <label>买法力</label>
@@ -1655,23 +1655,24 @@
             1金币换
             ]]></tooltip>
             <tooltip2><![CDATA[
-            法力。 Buys all the mana you can.<br>The merchant only has 7500 mana to sell, though.<br>Unlocked at 20% Explored.
+            法力。购买所有能买到的法力。<br>不过，这位商人手头只有7500点法力可卖。<br>探索进度达到20%时解锁。
             ]]></tooltip2>
-            <story_1><![CDATA[<b>Bought Mana:</b>⮀ You walk up to the mana stand, ready to throw your money at the man behind the counter, but he interrupts you before you can get a word out. "I'm sure you understand my <i>reasonable</i> prices, yes? Times are hard during this drought - my colleagues are all out of stock, and I only have 7500 mana left for sale myself." His prices are extortionate, but you pay them with gritted teeth, having no other option.]]></story_1>
-			<story_2><![CDATA[<b>7500 Mana Bought:</b>⮀ After you buy everything the man has for sale, he immediately states that he's out of stock and proceeds to slam the stall window on you. As he disappears, you spot a shadow of fear cross his face. He must have had to deal with a lot of angry would-be customers these days.]]></story_2>
+            <story_1><![CDATA[<b>买到法力：</b>⮀ 你走到摊位前，正要掏金币，那人却抢先开口：”你应该能理解我的<i>合理</i>价格吧？现在这个法力枯竭期可不好熬啊，我的同行都卖断货了，我这也只剩下7500点法力。”他的要价高得离谱，但你别无选择，只能咬牙付钱。]]></story_1>
+			<story_2><![CDATA[<b>买到7500点法力：</b>⮀ 当你买下他手里所有的法力后，他立刻宣称售罄，啪地关上了摊位的窗户。关窗瞬间，你瞥见他脸上闪过一丝惊慌的神色。想来他最近应该遇到过不少恼怒的顾客。]]></story_2>
         </buy_mana_challenge>
         <meet_people>
-            <label>Meet People</label>
-            <label_done>People Met</label_done>
+            <label>结识</label>
+            <label_done>结识进度</label_done>
             <tooltip><![CDATA[
-            They won't let you get away with a simple chat.<br>Unlocked at 22% Explored.
+            他们可不会让你随便聊两句就走。<br>探索进度达到22%时解锁。
             ]]></tooltip>
-            <story_1><![CDATA[<b>1% People Met:</b>⮀ You stand there, a little stumped at the situation you've gotten yourself into, when a young lass asks you about your day so far.]]></story_1>
-            <story_2><![CDATA[<b>20% People Met:</b>⮀ The people here are generally nice enough, if a bit brusque at times. Some people have small tasks that they're happy to pay for.]]></story_2>
-            <story_3><![CDATA[<b>40% People Met:</b>⮀ There are a surprising amount of people in the village. You didn't catch that when you were looking around.]]></story_3>
-            <story_4><![CDATA[<b>60% People Met:</b>⮀ It almost seems that most people have something they want done, the real problem is figuring out what's worth your time.]]></story_4>
-            <story_5><![CDATA[<b>80% People Met:</b>⮀ Having met such a large portion of the people in this village, you almost feel guilty about stealing from them. Almost.]]></story_5>
-            <story_6><![CDATA[<b>100% People Met:</b>⮀ You've spoken to everyone. Every child, adult, teen, animal and plant in this village. Everyone, and everything.]]></story_6>
+            <story_1><![CDATA[<b>结识进度1%：</b>⮀ 你愣愣地站在原地，这时一位年轻的姑娘走过来跟你打招呼。]]></story_1>
+            <story_2><![CDATA[<b>结识进度20%：</b>⮀ 这里的人还都挺友好的，虽然偶尔说话有点直。有些人还会请你帮忙点小忙，并乐意为此付点报酬。]]></story_2>
+            <story_3><![CDATA[<b>结识进度40%：</b>⮀ 村子里的人比你想象的要多得多。之前居然没注意到这一点。]]></story_3>
+            <story_4><![CDATA[<b>结识进度60%：</b>⮀ 似乎人人都有事想请你帮忙。问题在于哪些事值得你出手。]]></story_4>
+            <story_5><![CDATA[<b>结识进度80%：</b>⮀ 你已经认识了村里的大多数人，偷他们的东西时，你几乎会感到一丝愧疚。是的，几乎。]]></story_5>
+            <story_6><![CDATA[<b>结识进度100%：b>⮀ 你跟每个人都聊过。
+小孩、大人、年轻人，甚至还有动物和植物。没错，连它们你都聊过。]]></story_6>
         </meet_people>
         <train_strength>
             <label>Train Strength</label>
@@ -1725,7 +1726,7 @@
             gold and 1 reputation as a reward.<br>Every 5 Long Quests have loot.<br>Unlocked at 10% Investigated.
             ]]></tooltip2>
             <story_1><![CDATA[<b>完成长任务：</b>⮀ 你清理了一间地窖里的老鼠，足足有六十多只。你得到了丰厚的奖励，声望也小幅提升。]]></story_1>
-            <story_2><![CDATA[<b>一次循环中完成10个带奖励的长任务：</b>⮀ 你清理过地窖，帮人搭过房子，采过花做染料，在面包房打过工，倒过垃圾，还帮一位女裁缝做好了送给丈夫的礼物。你的口碑渐渐传开，大家都知道你是个热心肠的快递员。至少，没有人再会无视你了。]]></story_2>
+            <story_2><![CDATA[<b>一次循环中完成10个带奖励的长任务：</b>⮀ 你清理过地窖，帮人搭过房子，采过花做染料，在面包房打过工，倒过垃圾，还帮一位女裁缝做好了送给丈夫的礼物。你的口碑渐渐传开，大家都知道你是个热心肠的快递员。至少，没有人会无视你了。]]></story_2>
 		    <story_3><![CDATA[<b>25 Long Quests with loot in a loop:</b>⮀ The town has nothing left for you to do at this point and suggest that maybe you might find more work somewhere else. They appreciate everything you did, and many of the townsfolk are eager to put in a good word for you.]]></story_3>
         </long_quest>
         <throw_party>
