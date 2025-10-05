@@ -1664,7 +1664,7 @@
             <label>结识</label>
             <label_done>结识进度</label_done>
             <tooltip><![CDATA[
-            他们可不会让你随便聊两句就走。<br>探索进度达到22%时解锁。
+            他们可不会随便聊两句就放你走。<br>探索进度达到22%时解锁。
             ]]></tooltip>
             <story_1><![CDATA[<b>结识进度1%：</b>⮀ 你愣愣地站在原地，这时一位年轻的姑娘走过来跟你打招呼。]]></story_1>
             <story_2><![CDATA[<b>结识进度20%：</b>⮀ 这里的人还都挺友好的，虽然偶尔说话有点直。有人还会请你帮忙点小忙，并乐意为此付些报酬。]]></story_2>
@@ -1692,14 +1692,14 @@
             <info_text2>有奖励的任务（每循环可用数）</info_text2>
             <info_text3>待完成的任务</info_text3>
             <tooltip><![CDATA[
-            Be a hero! ...If the reward is good and it doesn't take too long.<br>Short Quests with loot give
+            成为英雄吧！……当然，前提是报酬够高，而且别太麻烦。<br>完成有报酬的短任务可获得
             ]]></tooltip>
             <tooltip2><![CDATA[
-            gold as a reward.<br>Every 5 Short Quests have loot.<br>Unlocked at 5% People Met.
+            金币。<br>每5个短任务，可发现1个有报酬的。<br>结识进度达到5%后解锁。
             ]]></tooltip2>
-            <story_1><![CDATA[<b>Short Quest finished:</b>⮀ You help an elderly woman get her cat down from atop her house, she rewards you handsomely for your efforts.]]></story_1>
-            <story_2><![CDATA[<b>20 Short Quests with loot in a loop:</b>⮀ You've helped everyone who's been willing to take you on, and the gold from your work jingles beautifully in your pockets. The satisfaction of a job well done fills you with pride.]]></story_2>
-		    <story_3><![CDATA[<b>50 Short Quests with loot in a loop:</b>⮀ You've gotten so familiar with residents' daily routines and needs that you can finish chores for them before they ever think to ask for help. The only problem is how much it unnerves people to see somebody just a bit too helpful, a bit too eager, a bit too... <i>convenient</i>.]]></story_3>
+            <story_1><![CDATA[<b>完成短任务：</b>⮀ 你帮一位老太太把困在屋顶上的猫救了下来，她慷慨地给了你一笔丰厚的报酬。]]></story_1>
+            <story_2><![CDATA[<b>单次循环完成20个短任务：</b>⮀ 你帮遍了所有想找你帮助的人。金币在口袋里叮当作响。完成任务的成就感让你倍感自豪。]]></story_2>
+		    <story_3><![CDATA[<b>单次循环完成50个短任务：</b>⮀ 你早已熟知村民的作息和需求，甚至能在他们开口之前就把事办妥。唯一的问题是，你这种“太过热心、勤快、……<i>方便</i>”的行为，让他们有点发毛。]]></story_3>
         </short_quest>
         <investigate>
             <label>调查</label>
@@ -1720,14 +1720,14 @@
             <info_text2>有奖励的任务（每循环可用数）</info_text2>
             <info_text3>待完成的任务</info_text3>
             <tooltip><![CDATA[
-            Be a more impressive hero! ...As long as someone is watching.<br>Long Quests with loot give
+            成为更闪亮的英雄吧！……当然，前提是有人在看。<br>完成有报酬的长任务可获得
             ]]></tooltip>
             <tooltip2><![CDATA[
-            gold and 1 reputation as a reward.<br>Every 5 Long Quests have loot.<br>Unlocked at 10% Investigated.
+            金币与1点声望。<br>每5个长任务，可发现1个有报酬的。<br>调查进度达到10%后解锁。
             ]]></tooltip2>
-            <story_1><![CDATA[<b>完成长任务：</b>⮀ 你清理了一间地窖里的老鼠，足足有六十多只。你得到了丰厚的奖励，声望也小幅提升。]]></story_1>
-            <story_2><![CDATA[<b>一次循环中完成10个带奖励的长任务：</b>⮀ 你清理过地窖，帮人搭过房子，采过花做染料，在面包房打过工，倒过垃圾，还帮一位女裁缝做好了送给丈夫的礼物。你的口碑渐渐传开，大家都知道你是个热心肠的快递员。至少，没有人会无视你了。]]></story_2>
-		    <story_3><![CDATA[<b>25 Long Quests with loot in a loop:</b>⮀ The town has nothing left for you to do at this point and suggest that maybe you might find more work somewhere else. They appreciate everything you did, and many of the townsfolk are eager to put in a good word for you.]]></story_3>
+            <story_1><![CDATA[<b>完成长任务：</b>⮀ 你清理了一个老鼠横行的地窖，里面足足有六十多只。你得到了丰厚的报酬，声望也稍稍提升了1点。]]></story_1>
+            <story_2><![CDATA[<b>单次循环中完成10个有报酬的长任务：</b>⮀你清理过地窖，帮人搭过房子，采过花做染料，在面包房打过工，倒过垃圾，还帮一位女裁缝完成了送给丈夫的礼物。你的口碑渐渐传开，大家都知道你是个热心的快递员。至少，现在没人会再无视你了。]]></story_2>
+		    <story_3><![CDATA[<b>单次循环中完成25个有报酬的长任务：</b>⮀镇上的活都被你包了，人们建议你也许可以去别处看看。他们衷心感谢你所做的一切，许多人都愿意为你美言几句。]]></story_3>
         </long_quest>
         <throw_party>
             <label>Throw Party</label>
