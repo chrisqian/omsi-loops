@@ -1730,12 +1730,12 @@
 		    <story_3><![CDATA[<b>单次循环中完成25个有报酬的长任务：</b>⮀镇上的活都被你包了，人们建议你也许可以去别处看看。他们衷心感谢你所做的一切，许多人都愿意为你美言几句。]]></story_3>
         </long_quest>
         <throw_party>
-            <label>Throw Party</label>
+            <label>开派对</label>
             <tooltip><![CDATA[
-            Take a break and socialize.<br>Gives people met progress equivalent to 16 Meet People actions.<br>Costs 2 reputation.<br>Unlocked at 30% Investigated.
+            放松一下，和大家热闹热闹。<br>可获得相当于16次“结识”行动的进度。br>消耗2点声望。<br>调查进度达到30%后解锁。
             ]]></tooltip>
-            <story_1><![CDATA[<b>Party thrown:</b>⮀ You announce that it's your birthday and you want to throw a party. You commandeer the village square and the people necessary to make it happen. You don't have the gold but people aren't quite able to say no. You promise you'll pay it off with the money from this current job.]]></story_1>
-			<story_2><![CDATA[<b>10 Party thrown in a loop:</b>⮀ You throw a massive celebration that lasts the entire day. The whole town is invited, and since you're offering free food, most of them even show up! There are multiple parades as well as a dunk tank, the latter of which doesn't come cheap, but you don't care. You told them you'll pay it off "later," and since you've done such a massive amount for the town today, they didn't have much grounds to refuse you.]]></story_2>
+            <story_1><![CDATA[<b>开派对：</b>⮀你声称今天是你的生日，要在村里办场派对。你占下了广场，还拉上众人帮忙布置。虽然你手头没钱，但大家也不好意思拒绝。你向他们保证，会用工作的收入把账结清。]]></story_1>
+			<story_2><![CDATA[<b>单次循环中举办10次派对：</b>⮀ 你举办了一场盛大的庆典，热闹了一整天。你邀请了全村人，基本上都来了，毕竟有免费吃喝。庆典上有游行活动，还有个落水台游戏，虽然不便宜，但你一点也不在乎。你说“回头“就付钱，而因为你今天对村子做了不少贡献，他们也没好意思拒绝。]]></story_2>
         </throw_party>
         <warrior_lessons>
             <label>Warrior Lessons</label>
@@ -1763,14 +1763,15 @@
             <story_7><![CDATA[<b>100 Alchemy:</b>⮀ You offer to teach Warrick about alchemy if he teaches you about the branches of magic you have little grounding in. The man himself is a genius and has much to teach. He gives it his all, tempted by the secrets of Alchemy.]]></story_7>
         </mage_lessons>
         <heal_the_sick>
-            <label>Heal The Sick</label>
+            <label>治病</label>
             <label_done>已治愈</label_done>
             <label_part>病人</label_part>
             <tooltip><![CDATA[
-            You won't be able to heal them all, but they'll be thankful for doing what you can.<br>Healing is always 3 parts, each with a main stat - Diagnose (Per), Treat (Int), Inform (Cha).<br>Gives (magic skill) * max(restoration skill/50, 1) * (1 + main stat / 100) * sqrt(1 + times completed / 100) * (original mana cost / actual mana cost) progress points per mana.<br>Requires a reputation of 1 or above.<br>Unlocked at 12 Magic skill.<br>Gives 3 reputation upon patient completion.
+            你不可能治愈每个人，但他们依然会感激你尽力而为。<br>治病分为三个阶段，每阶段对应一个主属性：诊断（感知）、治疗（智力）、告知（魅力）。<br>每点法力可获得的进度为：
+（魔法技能） × max（恢复技能/50，1） × （1 + 主属性/100） × sqrt（1 + 完成次数/100） × （原始法力消耗/实际法力消耗）。<br>需要声望达到1或以上。<br>在魔法技能达到12时解锁。<br>每治愈一个患者可获得3点声望。
 			]]></tooltip>
-			<story_1><![CDATA[<b>Patient healed:</b>⮀ You're allowed in to see the patients and begin healing. You're not too experienced but neither is anyone else here, and your basic magic skills make some of the small things easier even if they can't heal people directly. It's excellent practice and everyone you heal, whether you're setting broken bones or bandaging small scrapes, is extraordinarily thankful for your help.]]></story_1>
-			<story_2><![CDATA[<b>10 Patients healed in a loop:</b>⮀ You wipe your brow after finishing a particularly difficult diagnosis. You wouldn't want to have to do something like that without magic. Divinations make diagnoses so much easier. At this point you've basically cleared out the entire healing home - your reputation is absolutely sterling and the nurses and healers are more than thankful for your help.]]></story_2>
+			<story_1><![CDATA[<b>治愈病人：</b>⮀ 你终于被准许进入病房，开始为病人治疗。虽然你经验不多，但其他人也是半斤八两。幸好你的基础魔法，哪怕不能直接治愈病人，也让很多小问题处理起来轻松不少。这对你来说是极好的练习机会。无论是接骨还是包扎伤口，每个病人都对你感激万分。]]></story_1>
+			<story_2><![CDATA[<b>单次循环中治愈10位病人：</b>⮀ 你擦了擦额头的汗，结束了一场棘手的诊断。没有魔法可干不了这活。诊断时用上占卜术可太方便了。 At this point you've basically cleared out the entire healing home - your reputation is absolutely sterling and the nurses and healers are more than thankful for your help.]]></story_2>
 			<story_3><![CDATA[<b>100 Patients healed:</b>⮀ You've healed some of these townsfolk so many times, you don't actually need to speak to them or examine them to find out what's wrong. You go through the same steps anyways, because good bedside manners are an integral part of earning respect as a healer.]]></story_3>
 			<story_4><![CDATA[<b>1000 Patients healed:</b>⮀ You never formally trained as a healer, but you've healed so many people that you're pretty much an expert now. Nothing can stop you, nothing can stump you, nothing can even slow you down! ...Except when they bring in a patient you haven't seen before. When that happens, it usually takes you a while to figure out what their problem is.]]></story_4>
 			<story_5><![CDATA[<b>Failed Action:</b>⮀ You're turned away at the door, the small healers home stating that they can't trust you to not poison the people inside or make the situation worse.]]></story_5>
